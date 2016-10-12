@@ -6,6 +6,7 @@ import ec.BreedingPipeline;
 import ec.EvolutionState;
 import ec.Individual;
 import ec.util.Parameter;
+import ec.multiobjective.MultiObjectiveFitness;
 
 public class WSCMutationPipeline extends BreedingPipeline {
 
@@ -43,7 +44,7 @@ public class WSCMutationPipeline extends BreedingPipeline {
         for(int q=start;q<n+start;q++) {
         	SequenceVectorIndividual tree = (SequenceVectorIndividual)inds[q];
 
-        	double bestFitness = tree.fitness.fitness();
+        	MultiObjectiveFitness bestFitness = (MultiObjectiveFitness) tree.fitness.clone();
         	Service[] bestNeighbour = tree.genome;
 
         	Service[] neighbour = null;
@@ -55,8 +56,10 @@ public class WSCMutationPipeline extends BreedingPipeline {
 
         			// Calculate fitness, and update the best neighbour if necessary
         			tree.calculateSequenceFitness(init.numLayers, init.endServ, neighbour, init, state, true);
-        			if (tree.fitness.fitness() > bestFitness)
+        			if (tree.fitness.betterThan(bestFitness)) {
+        				bestFitness.setObjectives(state, ((MultiObjectiveFitness)tree.fitness).getObjectives());
         				bestNeighbour = Arrays.copyOf(neighbour, tree.genome.length);
+        			}
         		}
         	}
             // Update the tree to contain the best genome found

@@ -11,7 +11,8 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 import ec.EvolutionState;
-import ec.simple.SimpleFitness;
+import ec.Fitness;
+import ec.multiobjective.MultiObjectiveFitness;
 import ec.util.Parameter;
 import ec.vector.VectorIndividual;
 
@@ -71,6 +72,21 @@ public class SequenceVectorIndividual extends VectorIndividual {
 	@Override
 	public String toString() {
 		return Arrays.toString(genome);
+	}
+
+	@Override
+	public SequenceVectorIndividual clone() {
+    	SequenceVectorIndividual g = new SequenceVectorIndividual();
+    	g.species = this.species;
+    	if (this.fitness == null)
+    		g.fitness = (Fitness) g.species.f_prototype.clone();
+    	else
+    		g.fitness = (Fitness) this.fitness.clone();
+    	if (genome != null) {
+    		// Shallow cloning is fine in this approach
+    		g.genome = genome.clone();
+    	}
+    	return g;
 	}
 
 	public String toGraphString(EvolutionState state) {
@@ -248,10 +264,10 @@ public class SequenceVectorIndividual extends VectorIndividual {
 	    }
 
 	   public void finishCalculatingSequenceFitness(WSCInitializer init, EvolutionState state) {
-		   double f = calculateFitness(cost, time, availability, reliability, init);
-			init.trackFitnessPerEvaluations(f);
+		   double[] objectives = calculateFitness(cost, time, availability, reliability, init);
+			//init.trackFitnessPerEvaluations(f);
 
-			((SimpleFitness) fitness).setFitness(state, f, false); // XXX Move this inside the other one
+			((MultiObjectiveFitness) fitness).setObjectives(state, objectives);
 			evaluated = true;
 	   }
 
@@ -266,13 +282,19 @@ public class SequenceVectorIndividual extends VectorIndividual {
 		    return max;
 		}
 
-		public double calculateFitness(double c, double t, double a, double r, WSCInitializer init) {
+		public double[] calculateFitness(double c, double t, double a, double r, WSCInitializer init) {
 	        a = normaliseAvailability(a, init);
 	        r = normaliseReliability(r, init);
 	        t = normaliseTime(t, init);
 	        c = normaliseCost(c, init);
 
-	        return (init.w1 * a + init.w2 * r + init.w3 * t + init.w4 * c);
+	        double[] objectives = new double[2];
+	        //objectives[GraphInitializer.AVAILABILITY] = a;
+	        //objectives[GraphInitializer.RELIABILITY] = r;
+	        objectives[WSCInitializer.TIME] = t;
+	        objectives[WSCInitializer.COST] = c;
+
+	        return objectives;
 		}
 
 		private double normaliseAvailability(double availability, WSCInitializer init) {
