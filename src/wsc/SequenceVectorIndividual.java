@@ -291,8 +291,10 @@ public class SequenceVectorIndividual extends VectorIndividual {
 	        double[] objectives = new double[2];
 	        //objectives[GraphInitializer.AVAILABILITY] = a;
 	        //objectives[GraphInitializer.RELIABILITY] = r;
-	        objectives[WSCInitializer.TIME] = t;
-	        objectives[WSCInitializer.COST] = c;
+	        //objectives[WSCInitializer.TIME] = t;
+	        //objectives[WSCInitializer.COST] = c;
+	        objectives[0] = t + c;
+	        objectives[1] = a + r;
 
 	        return objectives;
 		}
@@ -301,28 +303,32 @@ public class SequenceVectorIndividual extends VectorIndividual {
 			if (init.maxAvailability - init.minAvailability == 0.0)
 				return 1.0;
 			else
-				return (availability - init.minAvailability)/(init.maxAvailability - init.minAvailability);
+				//return (availability - init.minAvailability)/(init.maxAvailability - init.minAvailability);
+				return (init.maxAvailability - availability)/(init.maxAvailability - init.minAvailability);
 		}
 
 		private double normaliseReliability(double reliability, WSCInitializer init) {
 			if (init.maxReliability- init.minReliability == 0.0)
 				return 1.0;
 			else
-				return (reliability - init.minReliability)/(init.maxReliability - init.minReliability);
+				//return (reliability - init.minReliability)/(init.maxReliability - init.minReliability);
+				return (init.maxReliability - reliability)/(init.maxReliability - init.minReliability);
 		}
 
 		private double normaliseTime(double time, WSCInitializer init) {
 			if (init.maxTime - init.minTime == 0.0)
 				return 1.0;
 			else
-				return (init.maxTime - time)/(init.maxTime - init.minTime);
+				//return (init.maxTime - time)/(init.maxTime - init.minTime);
+				return (time - init.minTime)/(init.maxTime - init.minTime);
 		}
 
 		private double normaliseCost(double cost, WSCInitializer init) {
 			if (init.maxCost - init.minCost == 0.0)
 				return 1.0;
 			else
-				return (init.maxCost - cost)/(init.maxCost - init.minCost);
+				//return (init.maxCost - cost)/(init.maxCost - init.minCost);
+				return (cost - init.minCost)/(init.maxCost - init.minCost);
 		}
 
 		public List<InputTimeLayerTrio> getInputsSatisfied(List<InputTimeLayerTrio> inputsToSatisfy, Service n, WSCInitializer init) {

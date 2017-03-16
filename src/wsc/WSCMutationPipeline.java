@@ -45,8 +45,30 @@ public class WSCMutationPipeline extends BreedingPipeline {
         	SequenceVectorIndividual tree = (SequenceVectorIndividual)inds[q];
 
         	MultiObjectiveFitness bestFitness = (MultiObjectiveFitness) tree.fitness.clone();
+        	// Calculate a single score value dynamically, using weights that reflect the the importance of
+        	//each objective (we are trying to push the good objective to keep on improving as much as possible).
+        	double[] weights = new double[bestFitness.getNumObjectives()];
+
+        	// Determine total to use in weight calculations
+        	double total = 0.0;
+        	for (double objective : bestFitness.getObjectives()) {
+        		total += objective;
+        	}
+
+        	// Calculate weights
+        	for (int i = 0; i < bestFitness.getNumObjectives(); i++) {
+        		weights[i] = bestFitness.getObjective(i)/total;
+        	}
+
+        	// Now calculate initial best score
+        	double bestScore = 0.0;
+        	for (int i = 0; i < bestFitness.getNumObjectives(); i++) {
+        		bestScore += (weights[i] * bestFitness.getObjective(i));
+        	}
+
         	Service[] bestNeighbour = tree.genome;
 
+        	double score = 0.0;
         	Service[] neighbour = null;
 
         	for (int i = 0; i < tree.genome.length; i++) {
@@ -56,9 +78,16 @@ public class WSCMutationPipeline extends BreedingPipeline {
 
         			// Calculate fitness, and update the best neighbour if necessary
         			tree.calculateSequenceFitness(init.numLayers, init.endServ, neighbour, init, state, true);
-        			if (tree.fitness.betterThan(bestFitness)) {
+
+            		// Calculate the single-score value
+            		score = 0.0;
+            		for (int k = 0; k < ((MultiObjectiveFitness)tree.fitness).getNumObjectives(); k++) {
+                		score += (weights[k] * ((MultiObjectiveFitness)tree.fitness).getObjective(k));
+                	}
+        			if (score < bestScore) {
         				bestFitness.setObjectives(state, ((MultiObjectiveFitness)tree.fitness).getObjectives());
         				bestNeighbour = Arrays.copyOf(neighbour, tree.genome.length);
+        				bestScore = score;
         			}
         		}
         	}

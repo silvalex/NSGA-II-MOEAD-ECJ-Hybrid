@@ -140,15 +140,15 @@ public class WSCMultiObjectiveStatistics extends MultiObjectiveStatistics {
 //		builder.append(" ");
 //		builder.append(objectives[GraphInitializer.RELIABILITY]);
 //		builder.append(" ");
-		builder.append(objectives[WSCInitializer.TIME]);
+		builder.append(objectives[0]);
 		builder.append(" ");
-		builder.append(objectives[WSCInitializer.COST]);
+		builder.append(objectives[1]);
 		builder.append(" ");
 
-		// builder.append(ind.availability);
-		// builder.append(" ");
-		// builder.append(ind.reliability);
-		// builder.append(" ");
+		builder.append(ind.getAvailability());
+		builder.append(" ");
+		builder.append(ind.getReliability());
+		builder.append(" ");
 		builder.append(ind.getTime());
 		builder.append(" ");
 		builder.append(ind.getCost());
