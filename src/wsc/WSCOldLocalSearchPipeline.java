@@ -8,7 +8,7 @@ import ec.Individual;
 import ec.multiobjective.MultiObjectiveFitness;
 import ec.util.Parameter;
 
-public class WSCLinearMutationPipeline extends BreedingPipeline {
+public class WSCOldLocalSearchPipeline extends BreedingPipeline {
 
 	private static final long serialVersionUID = 1L;
 
