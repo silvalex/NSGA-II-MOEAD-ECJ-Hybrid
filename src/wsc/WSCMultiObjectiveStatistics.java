@@ -2,6 +2,7 @@ package wsc;
 
 import java.util.ArrayList;
 
+import apple.laf.JRSUIConstants.State;
 import ec.EvolutionState;
 import ec.Individual;
 import ec.multiobjective.MultiObjectiveFitness;
@@ -74,7 +75,7 @@ public class WSCMultiObjectiveStatistics extends MultiObjectiveStatistics {
 				builder.append(evaluationTime);
 				builder.append(" ");
 
-				individualStringRepresentation(ind, builder, false);
+				individualStringRepresentation(ind, builder, false, state);
 				state.output.println(builder.toString(), statisticslog);
 			}
 		}
@@ -111,7 +112,7 @@ public class WSCMultiObjectiveStatistics extends MultiObjectiveStatistics {
 				for (int i = 0; i < sortedFront.length; i++) {
 					SequenceVectorIndividual ind = (SequenceVectorIndividual) sortedFront[i];
 					StringBuilder builder = new StringBuilder();
-					individualStringRepresentation(ind, builder, true);
+					individualStringRepresentation(ind, builder, true, state);
 					state.output.println(builder.toString(), frontLog);
 				}
 			}
@@ -126,7 +127,7 @@ public class WSCMultiObjectiveStatistics extends MultiObjectiveStatistics {
 	 * @param builder
 	 * @param finalFront
 	 */
-	public void individualStringRepresentation( SequenceVectorIndividual ind, StringBuilder builder, boolean finalFront) {
+	public void individualStringRepresentation( SequenceVectorIndividual ind, StringBuilder builder, boolean finalFront, EvolutionState state) {
 
 		NSGA2MultiObjectiveFitness f = (NSGA2MultiObjectiveFitness) ind.fitness;
 		builder.append(f.rank);
@@ -156,7 +157,7 @@ public class WSCMultiObjectiveStatistics extends MultiObjectiveStatistics {
 		if (finalFront) {
 			builder.append(" ");
 			builder.append("\"");
-			builder.append(ind.toString());
+			builder.append(ind.toGraphString(state));
 			builder.append("\"");
 		}
 	}
