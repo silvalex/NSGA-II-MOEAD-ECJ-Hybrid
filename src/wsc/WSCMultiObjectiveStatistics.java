@@ -2,7 +2,6 @@ package wsc;
 
 import java.util.ArrayList;
 
-import apple.laf.JRSUIConstants.State;
 import ec.EvolutionState;
 import ec.Individual;
 import ec.multiobjective.MultiObjectiveFitness;
