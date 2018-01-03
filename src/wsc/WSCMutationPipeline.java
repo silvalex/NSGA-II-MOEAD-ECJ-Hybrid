@@ -1,7 +1,5 @@
 package wsc;
 
-import java.util.Arrays;
-
 import ec.BreedingPipeline;
 import ec.EvolutionState;
 import ec.Individual;
@@ -28,26 +26,24 @@ public class WSCMutationPipeline extends BreedingPipeline {
 		int n = sources[0].produce(min, max, start, subpopulation, inds, state, thread);
 
         if (!(sources[0] instanceof BreedingPipeline)) {
-            for(int q=start;q<n+start;q++)
-                inds[q] = (Individual)(inds[q].clone());
+        	inds[subpopulation] = (Individual)(inds[subpopulation].clone());
         }
 
-        if (!(inds[start] instanceof SequenceVectorIndividual))
+        if (!(inds[subpopulation] instanceof SequenceVectorIndividual))
             // uh oh, wrong kind of individual
-            state.output.fatal("WSCMutationPipeline didn't get a SequenceVectorIndividual. The offending individual is in subpopulation "
-            + subpopulation + " and it's:" + inds[start]);
+            state.output.fatal("WSCMutationPipeline didn't get a SequenceVectorIndividual. The offending individual is: " + inds[subpopulation]);
 
         WSCInitializer init = (WSCInitializer) state.initializer;
 
         // Perform mutation
-        for(int q=start;q<n+start;q++) {
-        	SequenceVectorIndividual tree = (SequenceVectorIndividual)inds[q];
 
-        	int indexA = init.random.nextInt(tree.genome.length);
-        	int indexB = init.random.nextInt(tree.genome.length);
-        	swapServices(tree.genome, indexA, indexB);
-            tree.evaluated=false;
-        }
+    	SequenceVectorIndividual tree = (SequenceVectorIndividual)inds[subpopulation];
+
+    	int indexA = init.random.nextInt(tree.genome.length);
+    	int indexB = init.random.nextInt(tree.genome.length);
+    	swapServices(tree.genome, indexA, indexB);
+        tree.evaluated=false;
+
         return n;
 	}
 

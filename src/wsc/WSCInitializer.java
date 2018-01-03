@@ -1,9 +1,12 @@
 package wsc;
 
+import static java.lang.Math.abs;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -23,8 +26,10 @@ import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
 
 import ec.EvolutionState;
+import ec.Individual;
 import ec.Population;
 import ec.Subpopulation;
+import ec.multiobjective.MultiObjectiveFitness;
 import ec.simple.SimpleInitializer;
 import ec.util.Parameter;
 import wsc.WSCRandom;
@@ -63,6 +68,7 @@ public class WSCInitializer extends SimpleInitializer {
 	public double w3;
 	public double w4;
 	public static boolean dynamicNormalisation;
+	public static boolean tchebycheff;
 
 	public static double[] meanAvailPerGen;
 	public static double[] meanReliaPerGen;
@@ -77,6 +83,15 @@ public class WSCInitializer extends SimpleInitializer {
 	public static File evaluationsLogFile;
 	public int evalSampleRate;
 	public static long setupTime;
+
+	public double idealPoint[];
+	public static int numObjectives;
+	public static int numNeighbours;
+	public static int popSize;
+	public double[][] weights;
+	public int[][] neighbourhood;
+
+	public Set<Individual> externalPopulation = new HashSet<Individual>();
 
 	// Statistics tracking
 	public int numEvaluations = 1;
@@ -109,12 +124,20 @@ public class WSCInitializer extends SimpleInitializer {
 		Parameter evaluationsLogNameParam = new Parameter("stat.evaluations");
 		Parameter evalSampleRateParam = new Parameter("stat.eval-sample-rate");
 		Parameter dynamicNormalisationParam = new Parameter("dynamic-normalisation");
+		Parameter tchebycheffParam = new Parameter("tchebycheff");
+		Parameter numObjectivesParam = new Parameter("multi.fitness.num-objectives");
+		Parameter popSizeParam = new Parameter("pop.subpop.0.size");
+		Parameter numNeighboursParam = new Parameter("numNeighbours");
 
 		w1 = state.parameters.getDouble(weight1Param, null);
 		w2 = state.parameters.getDouble(weight2Param, null);
 		w3 = state.parameters.getDouble(weight3Param, null);
 		w4 = state.parameters.getDouble(weight4Param, null);
 		dynamicNormalisation = state.parameters.getBoolean(dynamicNormalisationParam, null, false);
+		tchebycheff = state.parameters.getBoolean(tchebycheffParam, null, false);
+		numObjectives = state.parameters.getInt(numObjectivesParam, null);
+		popSize = state.parameters.getInt(popSizeParam, null);
+		numNeighbours = state.parameters.getInt(numNeighboursParam, null);
 
 		int numGens = state.parameters.getInt(new Parameter("generations"), null);
 		meanAvailPerGen = new double[numGens];
@@ -151,6 +174,124 @@ public class WSCInitializer extends SimpleInitializer {
 		Parameter genomeSizeParam = new Parameter("pop.subpop.0.species.genome-size");
 		state.parameters.set(genomeSizeParam, "" + relevant.size());
 		setupTime = System.currentTimeMillis() - startTime;
+
+		// Initialise the reference point
+		if (tchebycheff)
+			initIdealPoint();
+		// Create a set of uniformly spread weight vectors
+		weights = new double[popSize][numObjectives];
+		initWeights();
+		// Identify the neighbouring weights for each vector
+		neighbourhood = new int[popSize][numNeighbours];
+		identifyNeighbourWeights();
+	}
+
+	/**
+	 * Initialises the ideal point used for the Tchebycheff calculation.
+	 */
+	private void initIdealPoint() {
+		idealPoint = new double[numObjectives];
+		for (int i = 0; i < numObjectives; i++) {
+			idealPoint[i] = 0.0;
+		}
+	}
+
+	/**
+	 * Initialises the uniformely spread weight vectors. This code come from the authors'
+	 * original code base.
+	 */
+	private void initWeights() {
+		for (int i = 0; i < popSize; i++) {
+			if (numObjectives == 2) {
+				double[] weightVector = new double[2];
+				weightVector[0] = i / (double) popSize;
+				weightVector[1] = (popSize - i) / (double) popSize;
+				weights[i] = weightVector;
+			}
+			else if (numObjectives == 3) {
+				for (int j = 0; j < popSize; j++) {
+					if (i + j < popSize) {
+						int k = popSize - i - j;
+						double[] weightVector = new double[3];
+						weightVector[0] = i / (double) popSize;
+						weightVector[1] = j / (double) popSize;
+						weightVector[2] = k / (double) popSize;
+						weights[i] = weightVector;
+					}
+				}
+			}
+			else {
+				throw new RuntimeException("Unsupported number of objectives. Should be 2 or 3.");
+			}
+		}
+	}
+
+	/**
+	 * Create a neighbourhood for each weight vector, based on the Euclidean distance between each two vectors.
+	 */
+	private void identifyNeighbourWeights() {
+		// Calculate distance between vectors
+		double[][] distanceMatrix = new double[popSize][popSize];
+
+		for (int i = 0; i < popSize; i++) {
+			for (int j = 0; j < popSize; j++) {
+				if (i != j)
+					distanceMatrix[i][j] = calculateDistance(weights[i], weights[j]);
+			}
+		}
+
+		// Use this information to build the neighbourhood
+		for (int i = 0; i < popSize; i++) {
+			int[] neighbours = identifyNearestNeighbours(distanceMatrix[i], i);
+			neighbourhood[i] = neighbours;
+		}
+	}
+
+	/**
+	 * Calculates the Euclidean distance between two weight vectors.
+	 *
+	 * @param vector1
+	 * @param vector2
+	 * @return distance
+	 */
+	private double calculateDistance(double[] vector1, double[] vector2) {
+		double sum = 0;
+		for (int i = 0; i < vector1.length; i++) {
+			sum += Math.pow((vector1[i] - vector2[i]), 2);
+		}
+		return Math.sqrt(sum);
+	}
+
+	/**
+	 * Returns the indices for the nearest neighbours, according to their distance
+	 * from the current vector.
+	 *
+	 * @param distances - a list of distances from the other vectors
+	 * @param currentIndex - the index of the current vector
+	 * @return indices of nearest neighbours
+	 */
+	private int[] identifyNearestNeighbours(double[] distances, int currentIndex) {
+		Queue<IndexDistancePair> indexDistancePairs = new LinkedList<IndexDistancePair>();
+
+		// Convert the vector of distances to a list of index-distance pairs.
+		for(int i = 0; i < distances.length; i++) {
+			indexDistancePairs.add(new IndexDistancePair(i, distances[i]));
+		}
+		// Sort the pairs according to the distance, from lowest to highest.
+		Collections.sort((LinkedList<IndexDistancePair>) indexDistancePairs);
+
+		// Get the indices for the required number of neighbours
+		int[] neighbours = new int[numNeighbours];
+
+		// Get the neighbours, excluding the vector itself
+		IndexDistancePair neighbourCandidate;
+		for (int i = 0; i < numNeighbours; i++) {
+			neighbourCandidate = indexDistancePairs.poll();
+			while (neighbourCandidate.getIndex() == currentIndex)
+				neighbourCandidate = indexDistancePairs.poll();
+			neighbours[i] = neighbourCandidate.getIndex();
+		}
+		return neighbours;
 	}
 
 	/**
@@ -301,6 +442,51 @@ public class WSCInitializer extends SimpleInitializer {
 			outputs.clear();
 			outputs.addAll(temp);
 		}
+	}
+
+	/**
+	 * Calculates the problem score using the Tchebycheff approach, and the given
+	 * set of weights.
+	 *
+	 * @param ind
+	 * @param problemIndex - for retrieving weights and ideal point
+	 * @return score
+	 */
+	public double calculateTchebycheffScore(Individual ind, int problemIndex) {
+		double[] problemWeights = weights[problemIndex];
+		double max_fun = -1 * Double.MAX_VALUE;
+
+		MultiObjectiveFitness fit = (MultiObjectiveFitness) ind.fitness;
+
+		for (int i = 0; i < numObjectives; i++) {
+			double diff = abs(fit.getObjectives()[i] - idealPoint[i]);
+			double feval;
+			if (problemWeights[i] == 0)
+				feval = 0.00001 * diff;
+			else
+				feval = problemWeights[i] * diff;
+			if (feval > max_fun)
+				max_fun = feval;
+		}
+		return max_fun;
+	}
+
+	/**
+	 * Calculates the problem score for a given individual, using a given
+	 * set of weights.
+	 *
+	 * @param ind
+	 * @param problemIndex - for retrieving weights
+	 * @return score
+	 */
+	public double calculateScore(Individual ind, int problemIndex) {
+		double[] problemWeights = weights[problemIndex];
+		MultiObjectiveFitness fit = (MultiObjectiveFitness) ind.fitness;
+
+		double sum = 0;
+		for (int i = 0; i < numObjectives; i++)
+			sum += (problemWeights[i]) * fit.getObjectives()[i];
+		return sum;
 	}
 
 	/**
