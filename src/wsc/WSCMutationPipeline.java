@@ -26,10 +26,10 @@ public class WSCMutationPipeline extends BreedingPipeline {
 		int n = sources[0].produce(min, max, start, subpopulation, inds, state, thread);
 
         if (!(sources[0] instanceof BreedingPipeline)) {
-        	inds[subpopulation] = (Individual)(inds[subpopulation].clone());
+        	inds[1] = (Individual)(inds[subpopulation].clone());
         }
 
-        if (!(inds[subpopulation] instanceof SequenceVectorIndividual))
+        if (!(inds[1] instanceof SequenceVectorIndividual))
             // uh oh, wrong kind of individual
             state.output.fatal("WSCMutationPipeline didn't get a SequenceVectorIndividual. The offending individual is: " + inds[subpopulation]);
 

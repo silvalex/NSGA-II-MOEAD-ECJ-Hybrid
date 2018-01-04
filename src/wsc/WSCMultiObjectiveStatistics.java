@@ -113,8 +113,8 @@ public class WSCMultiObjectiveStatistics extends MultiObjectiveStatistics {
 				Population externalPopulationWrapper = new Population();
 				externalPopulationWrapper.subpops = new Subpopulation[1];
 				externalPopulationWrapper.subpops[0] = new Subpopulation();
-				externalPopulationWrapper.subpops[0].individuals = (Individual[])((WSCInitializer)state.initializer).externalPopulation.toArray();
-				ArrayList<Individual> bestSolutions = (ArrayList<Individual>) ((NSGA2Evaluator) state.evaluator).assignFrontRanks(externalPopulationWrapper.subpops[0]);
+				externalPopulationWrapper.subpops[0].individuals = ((WSCInitializer)state.initializer).externalPopulation.toArray(new Individual[0]);
+				ArrayList<Individual> bestSolutions = (ArrayList<Individual>) ((NSGA2Evaluator) state.evaluator).assignFrontRanks(externalPopulationWrapper.subpops[0]).get(0);
 
 //				for (int i = 0; i < sortedFront.length; i++) {
 //					SequenceVectorIndividual ind = (SequenceVectorIndividual) sortedFront[i];
@@ -122,9 +122,9 @@ public class WSCMultiObjectiveStatistics extends MultiObjectiveStatistics {
 //					individualStringRepresentation(ind, builder, true, state);
 //					state.output.println(builder.toString(), frontLog);
 //				}
-
-				for (Individual i : bestSolutions) {
-					SequenceVectorIndividual ind = (SequenceVectorIndividual) i;
+				
+				for (Individual obj : bestSolutions) {
+					SequenceVectorIndividual ind = (SequenceVectorIndividual) obj;
 					StringBuilder builder = new StringBuilder();
 					individualStringRepresentation(ind, builder, true, state);
 					state.output.println(builder.toString(), frontLog);

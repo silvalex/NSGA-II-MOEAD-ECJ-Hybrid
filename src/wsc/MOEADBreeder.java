@@ -4,9 +4,9 @@ import ec.BreedingPipeline;
 import ec.EvolutionState;
 import ec.Individual;
 import ec.Population;
-import ec.simple.SimpleBreeder;
+import ec.multiobjective.nsga2.NSGA2Breeder;
 
-public class MOEADBreeder extends SimpleBreeder {
+public class MOEADBreeder extends NSGA2Breeder {
 
 	private static final long serialVersionUID = 1L;
 
@@ -17,8 +17,8 @@ public class MOEADBreeder extends SimpleBreeder {
 	 */
 	public Population breedPopulation(EvolutionState state) {
 
-		Population newpop = (Population) state.population.emptyClone();
-		Population pop = state.population;
+		//Population newpop = (Population) state.population.emptyClone();
+		Population newpop = state.population;
 
 		// do regular breeding of this subpopulation
 		BreedingPipeline bp = null;

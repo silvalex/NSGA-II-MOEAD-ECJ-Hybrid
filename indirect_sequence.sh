@@ -76,7 +76,7 @@ ls -la
 DIR_HOME="/u/students/sawczualex/"
 DIR_GRID="/vol/grid-solar/sgeusers/sawczualex/"
 DIR_WORKSPACE="workspace/"
-DIR_PROGRAM=$DIR_HOME$DIR_WORKSPACE/"MultiObjectiveIndirectSequence/"
+DIR_PROGRAM=$DIR_HOME$DIR_WORKSPACE/"NSGA-II-MOEAD-ECJ-Hybrid/"
 ECJ_JAR=$DIR_HOME$DIR_WORKSPACE/"Library/ecj.23.jar"
 DIR_OUTPUT=$DIR_GRID$2 # Name of directory containing output
 
