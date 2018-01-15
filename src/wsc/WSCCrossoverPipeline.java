@@ -28,10 +28,10 @@ public class WSCCrossoverPipeline extends BreedingPipeline {
 
 		WSCInitializer init = (WSCInitializer) state.initializer;
 
-		int n1 = sources[0].produce(min, max, 0, subpopulation, inds, state, thread);
-		Individual ind1 = (Individual) inds[subpopulation].clone();
-		int n2 = sources[1].produce(min, max, 0, subpopulation, inds, state, thread);
-		Individual ind2 = (Individual) inds[subpopulation].clone();
+		int n1 = sources[0].produce(min, max, start, subpopulation, inds, state, thread);
+		Individual ind1 = (Individual) inds[start].clone();
+		int n2 = sources[1].produce(min, max, start, subpopulation, inds, state, thread);
+		Individual ind2 = (Individual) inds[start].clone();
 
         if (!(ind1 instanceof SequenceVectorIndividual))
             // uh oh, wrong kind of individual
@@ -99,11 +99,11 @@ public class WSCCrossoverPipeline extends BreedingPipeline {
 		}
 
     	if (firstScore < secondScore)
-        	inds[subpopulation] = t1;
+        	inds[start] = t1;
     	else
-    		inds[subpopulation] = t2;
+    		inds[start] = t2;
 
-        inds[subpopulation].evaluated=false;
+        inds[start].evaluated=false;
         return n1;
 	}
 
