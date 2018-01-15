@@ -2,8 +2,8 @@ parent.0 = @ec.multiobjective.nsga2.NSGA2Breeder nsga2.params
 parent.1 = @ec.simple.SimpleShortStatistics simple.params
 
 
-pop.subpop.0.size = 500
-generations       = 51
+pop.subpop.0.size = 5
+generations       = 5
 
 seed.0                                         = 1
 composition-task                               = problem.xml
@@ -72,4 +72,4 @@ pop.subpop.0.species.pipe.source.2.source.0	   = wsc.MOEADTournamentSelection
 select.tournament.size                         = 2
 
 tchebycheff = true
-numNeighbours = 499
+numNeighbours = 4

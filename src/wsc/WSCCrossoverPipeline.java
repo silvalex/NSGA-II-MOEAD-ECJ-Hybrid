@@ -90,12 +90,12 @@ public class WSCCrossoverPipeline extends BreedingPipeline {
     	double secondScore;
 
     	if (WSCInitializer.tchebycheff) {
-			firstScore = init.calculateTchebycheffScore(t1, subpopulation);
-			secondScore = init.calculateTchebycheffScore(t2, subpopulation);
+			firstScore = init.calculateTchebycheffScore(t1, start);
+			secondScore = init.calculateTchebycheffScore(t2, start);
     	}
 		else {
-			firstScore = init.calculateScore(t1, subpopulation);
-			secondScore = init.calculateScore(t2, subpopulation);
+			firstScore = init.calculateScore(t1, start);
+			secondScore = init.calculateScore(t2, start);
 		}
 
     	if (firstScore < secondScore)
