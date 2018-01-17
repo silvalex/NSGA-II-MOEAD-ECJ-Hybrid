@@ -27,6 +27,8 @@ public class WSCCrossoverPipeline extends BreedingPipeline {
 			Individual[] inds, EvolutionState state, int thread) {
 
 		WSCInitializer init = (WSCInitializer) state.initializer;
+		
+		Individual original = (Individual) inds[start];
 
 		int n1 = sources[0].produce(min, max, start, subpopulation, inds, state, thread);
 		Individual ind1 = (Individual) inds[start].clone();
@@ -86,21 +88,24 @@ public class WSCCrossoverPipeline extends BreedingPipeline {
 		t2.genome = newGenome2;
 
 		// Select the result with the highest fitness as the result
+		double originalScore;
     	double firstScore;
     	double secondScore;
 
     	if (WSCInitializer.tchebycheff) {
+    		originalScore = init.calculateTchebycheffScore(original, start);
 			firstScore = init.calculateTchebycheffScore(t1, start);
 			secondScore = init.calculateTchebycheffScore(t2, start);
     	}
 		else {
+			originalScore = init.calculateScore(original, start);
 			firstScore = init.calculateScore(t1, start);
 			secondScore = init.calculateScore(t2, start);
 		}
 
-    	if (firstScore < secondScore)
+    	if (firstScore < secondScore && firstScore <= originalScore)
         	inds[start] = t1;
-    	else
+    	else if (secondScore <= originalScore)
     		inds[start] = t2;
 
         inds[start].evaluated=false;

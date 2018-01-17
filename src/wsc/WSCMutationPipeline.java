@@ -24,6 +24,8 @@ public class WSCMutationPipeline extends BreedingPipeline {
 			Individual[] inds, EvolutionState state, int thread) {
 
 		int n = sources[0].produce(min, max, start, subpopulation, inds, state, thread);
+		
+		Individual original = (Individual) inds[start];
 
         if (!(sources[0] instanceof BreedingPipeline)) {
         	inds[start] = (Individual)(inds[start].clone());
@@ -36,12 +38,28 @@ public class WSCMutationPipeline extends BreedingPipeline {
         WSCInitializer init = (WSCInitializer) state.initializer;
 
         // Perform mutation
-    	SequenceVectorIndividual tree = (SequenceVectorIndividual)inds[start];
+    	SequenceVectorIndividual tree = (SequenceVectorIndividual)inds[start].clone();
 
     	int indexA = init.random.nextInt(tree.genome.length);
     	int indexB = init.random.nextInt(tree.genome.length);
     	swapServices(tree.genome, indexA, indexB);
-        tree.evaluated=false;
+    	
+    	double originalScore;
+    	double firstScore;
+    	
+      	if (WSCInitializer.tchebycheff) {
+    		originalScore = init.calculateTchebycheffScore(original, start);
+			firstScore = init.calculateTchebycheffScore(tree, start);
+    	}
+		else {
+			originalScore = init.calculateScore(original, start);
+			firstScore = init.calculateScore(tree, start);
+		}
+      	
+    	if (firstScore <= originalScore) {
+        	inds[start] = tree;
+        	inds[start].evaluated = false;
+    	}
 
         return n;
 	}
