@@ -72,4 +72,4 @@ pop.subpop.0.species.pipe.source.2.source.0	   = wsc.MOEADTournamentSelection
 select.tournament.size                         = 2
 
 tchebycheff = true
-numNeighbours = 499
+numNeighbours = 10
