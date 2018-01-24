@@ -88,6 +88,7 @@ public class WSCInitializer extends SimpleInitializer {
 	public static int numObjectives;
 	public static int numNeighbours;
 	public static int popSize;
+	public static int numLocalSearchTries;
 	public double[][] weights;
 	public int[][] neighbourhood;
 
@@ -128,6 +129,7 @@ public class WSCInitializer extends SimpleInitializer {
 		Parameter numObjectivesParam = new Parameter("multi.fitness.num-objectives");
 		Parameter popSizeParam = new Parameter("pop.subpop.0.size");
 		Parameter numNeighboursParam = new Parameter("numNeighbours");
+		Parameter numLocalSearchTriesParam = new Parameter("numLocalSearchTries");
 
 		w1 = state.parameters.getDouble(weight1Param, null);
 		w2 = state.parameters.getDouble(weight2Param, null);
@@ -138,6 +140,7 @@ public class WSCInitializer extends SimpleInitializer {
 		numObjectives = state.parameters.getInt(numObjectivesParam, null);
 		popSize = state.parameters.getInt(popSizeParam, null);
 		numNeighbours = state.parameters.getInt(numNeighboursParam, null);
+		numLocalSearchTries = state.parameters.getInt(numLocalSearchTriesParam, null);
 
 		int numGens = state.parameters.getInt(new Parameter("generations"), null);
 		meanAvailPerGen = new double[numGens];
@@ -283,12 +286,13 @@ public class WSCInitializer extends SimpleInitializer {
 		// Get the indices for the required number of neighbours
 		int[] neighbours = new int[numNeighbours];
 
-		// Get the neighbours, excluding the vector itself
+		// Get the neighbours, including the vector itself
 		IndexDistancePair neighbourCandidate;
 		for (int i = 0; i < numNeighbours; i++) {
 			neighbourCandidate = indexDistancePairs.poll();
-			while (neighbourCandidate.getIndex() == currentIndex)
-				neighbourCandidate = indexDistancePairs.poll();
+ 			// Uncomment this if you want to exclude the vector itself from being considered as part of the neighbourhood
+//			while (neighbourCandidate.getIndex() == currentIndex)
+//				neighbourCandidate = indexDistancePairs.poll();
 			neighbours[i] = neighbourCandidate.getIndex();
 		}
 		return neighbours;
