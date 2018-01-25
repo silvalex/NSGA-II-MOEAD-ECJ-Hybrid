@@ -93,38 +93,26 @@ public class WSCMultiObjectiveStatistics extends MultiObjectiveStatistics {
 				MultiObjectiveFitness typicalFitness = (MultiObjectiveFitness) (state.population.subpops[s].individuals[0].fitness);
 
 				// build front
-//				ArrayList front = typicalFitness.partitionIntoParetoFront(state.population.subpops[s].individuals, null,
-//						null);
-//				// sort by objective[0]
-//				Object[] sortedFront = front.toArray();
-//				QuickSort.qsort(sortedFront, new SortComparator() {
-//					public boolean lt(Object a, Object b) {
-//						return (((MultiObjectiveFitness) (((Individual) a).fitness)).getObjective(
-//								0) < (((MultiObjectiveFitness) ((Individual) b).fitness)).getObjective(0));
-//					}
-//
-//					public boolean gt(Object a, Object b) {
-//						return (((MultiObjectiveFitness) (((Individual) a).fitness)).getObjective(
-//								0) > ((MultiObjectiveFitness) (((Individual) b).fitness)).getObjective(0));
-//					}
-//				});
+				ArrayList front = typicalFitness.partitionIntoParetoFront(state.population.subpops[s].individuals, null,
+						null);
 
-				// TODO: Modify the code to write out from the front's population.
-				Population externalPopulationWrapper = new Population();
-				externalPopulationWrapper.subpops = new Subpopulation[1];
-				externalPopulationWrapper.subpops[0] = new Subpopulation();
-				externalPopulationWrapper.subpops[0].individuals = ((WSCInitializer)state.initializer).externalPopulation.toArray(new Individual[0]);
-				ArrayList<Individual> bestSolutions = (ArrayList<Individual>) ((NSGA2Evaluator) state.evaluator).assignFrontRanks(externalPopulationWrapper.subpops[0]).get(0);
+				// sort by objective[0]
+				Object[] sortedFront = front.toArray();
+				QuickSort.qsort(sortedFront, new SortComparator() {
+					public boolean lt(Object a, Object b) {
+						return (((MultiObjectiveFitness) (((Individual) a).fitness)).getObjective(
+								0) < (((MultiObjectiveFitness) ((Individual) b).fitness)).getObjective(0));
+					}
 
-//				for (int i = 0; i < sortedFront.length; i++) {
-//					SequenceVectorIndividual ind = (SequenceVectorIndividual) sortedFront[i];
-//					StringBuilder builder = new StringBuilder();
-//					individualStringRepresentation(ind, builder, true, state);
-//					state.output.println(builder.toString(), frontLog);
-//				}
-				
-				for (Individual obj : bestSolutions) {
-					SequenceVectorIndividual ind = (SequenceVectorIndividual) obj;
+					public boolean gt(Object a, Object b) {
+						return (((MultiObjectiveFitness) (((Individual) a).fitness)).getObjective(
+								0) > ((MultiObjectiveFitness) (((Individual) b).fitness)).getObjective(0));
+					}
+				});
+
+				// write front out to disk
+				for (int i = 0; i < sortedFront.length; i++) {
+					SequenceVectorIndividual ind = (SequenceVectorIndividual) sortedFront[i];
 					StringBuilder builder = new StringBuilder();
 					individualStringRepresentation(ind, builder, true, state);
 					state.output.println(builder.toString(), frontLog);

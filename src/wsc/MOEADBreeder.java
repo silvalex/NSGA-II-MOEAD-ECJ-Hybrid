@@ -28,10 +28,6 @@ public class MOEADBreeder extends NSGA2Breeder {
 			bp.produce(1, 1, probIndex, 0, newInds, state, 0);
 		}
 
-		for (Individual i : newInds) {
-			((WSCInitializer) state.initializer).externalPopulation.add(i);
-		}
-
 		Individual[] combinedInds = new Individual[oldPop.subpops[0].individuals.length + newPop.subpops[0].individuals.length];
         System.arraycopy(newPop.subpops[0].individuals, 0, combinedInds, 0,  newPop.subpops[0].individuals.length);
         System.arraycopy(oldPop.subpops[0].individuals, 0, combinedInds,  newPop.subpops[0].individuals.length, oldPop.subpops[0].individuals.length);

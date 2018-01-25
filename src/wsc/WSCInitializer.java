@@ -92,8 +92,6 @@ public class WSCInitializer extends SimpleInitializer {
 	public double[][] weights;
 	public int[][] neighbourhood;
 
-	public Set<Individual> externalPopulation = new HashSet<Individual>();
-
 	// Statistics tracking
 	public int numEvaluations = 1;
 	public double globalFitness = 0.0;
