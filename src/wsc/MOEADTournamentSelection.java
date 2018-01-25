@@ -8,11 +8,9 @@ public class MOEADTournamentSelection extends TournamentSelection {
 	private static final long serialVersionUID = 1L;
 
 	public int getRandomIndividual(int subproblem, int subpopulation, EvolutionState state, int thread) {
-		int index = subproblem;
-
 		WSCInitializer init = (WSCInitializer) state.initializer;
 		int neighbourIndex = init.random.nextInt(WSCInitializer.numNeighbours);
-		int populationIndex = init.neighbourhood[index][neighbourIndex];
+		int populationIndex = init.neighbourhood[subproblem][neighbourIndex];
 		return populationIndex;
 	}
 
@@ -45,22 +43,14 @@ public class MOEADTournamentSelection extends TournamentSelection {
             final EvolutionState state,
             final int thread)
             {
-            int n=INDS_PRODUCED;
-            if (n<min) n = min;
-            if (n>max) n = max;
+            int n=1;
 
-            for(int q=0;q<n;q++)
-                inds[start+q] = state.population.subpops[subpopulation].
-                    individuals[produceMOEAD(start,subpopulation,state,thread)];
+            inds[start] = state.population.subpops[subpopulation].individuals[produceMOEAD(start,subpopulation,state,thread)];
             return n;
             }
 
 
-    public int produceMOEAD(final int start, final int subpopulation,
-            final EvolutionState state,
-            final int thread)
-            {
-            // pick size random individuals, then pick the best.
+    public int produceMOEAD(final int start, final int subpopulation, final EvolutionState state, final int thread) {
             Individual[] oldinds = state.population.subpops[subpopulation].individuals;
             int best = getRandomIndividual(start, subpopulation, state, thread);
 
