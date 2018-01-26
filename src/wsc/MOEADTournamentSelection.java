@@ -7,18 +7,18 @@ public class MOEADTournamentSelection extends TournamentSelection {
 
 	private static final long serialVersionUID = 1L;
 
-//	public int getRandomIndividual(int subproblem, int subpopulation, EvolutionState state, int thread) {
-//		WSCInitializer init = (WSCInitializer) state.initializer;
-//		int neighbourIndex = init.random.nextInt(WSCInitializer.numNeighbours);
-//		int populationIndex = init.neighbourhood[subproblem][neighbourIndex];
-//		return populationIndex;
-//	}
+	public int getRandomIndividual(int subproblem, int subpopulation, EvolutionState state, int thread) {
+		WSCInitializer init = (WSCInitializer) state.initializer;
+		int neighbourIndex = init.random.nextInt(WSCInitializer.numNeighbours);
+		int populationIndex = init.neighbourhood[subproblem][neighbourIndex];
+		return populationIndex;
+	}
 
-    public int getRandomIndividual(int number, int subpopulation, EvolutionState state, int thread)
-    {
-    Individual[] oldinds = state.population.subpops[subpopulation].individuals;
-    return state.random[thread].nextInt(oldinds.length);
-    }
+//    public int getRandomIndividual(int number, int subpopulation, EvolutionState state, int thread)
+//    {
+//    Individual[] oldinds = state.population.subpops[subpopulation].individuals;
+//    return state.random[thread].nextInt(oldinds.length);
+//    }
 
     /** Returns true if *first* is a better (fitter, whatever) individual than *second*. */
 //    public boolean betterThan(int subproblem, Individual first, Individual second, int subpopulation, EvolutionState state, int thread){
