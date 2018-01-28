@@ -16,7 +16,7 @@ fitness-weight1                                = 0.25
 fitness-weight2                                = 0.25
 fitness-weight3                                = 0.25
 fitness-weight4                                = 0.25
-dynamic-normalisation                          = false
+dynamic-normalisation                          = true
 
 stat.evaluations                               = $eval.stat
 stat.eval-sample-rate                          = 30

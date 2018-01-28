@@ -21,29 +21,29 @@ public class MOEADTournamentSelection extends TournamentSelection {
 //    }
 
     /** Returns true if *first* is a better (fitter, whatever) individual than *second*. */
-//    public boolean betterThan(int subproblem, Individual first, Individual second, int subpopulation, EvolutionState state, int thread){
-//		int index = subproblem;
-//
-//    	WSCInitializer init = (WSCInitializer) state.initializer;
-//    	double firstScore;
-//    	double secondScore;
-//
-//    	if (WSCInitializer.tchebycheff) {
-//			firstScore = init.calculateTchebycheffScore(first, index);
-//			secondScore = init.calculateTchebycheffScore(second, index);
-//    	}
-//		else {
-//			firstScore = init.calculateScore(first, index);
-//			secondScore = init.calculateScore(second, index);
-//		}
-//
-//        return firstScore < secondScore;
-//    }
+    public boolean betterThan(int subproblem, Individual first, Individual second, int subpopulation, EvolutionState state, int thread){
+		int index = subproblem;
 
-    public boolean betterThan(int subproblem, Individual first, Individual second, int subpopulation, EvolutionState state, int thread)
-    {
-    return first.fitness.betterThan(second.fitness);
+    	WSCInitializer init = (WSCInitializer) state.initializer;
+    	double firstScore;
+    	double secondScore;
+
+    	if (WSCInitializer.tchebycheff) {
+			firstScore = init.calculateTchebycheffScore(first, index);
+			secondScore = init.calculateTchebycheffScore(second, index);
+    	}
+		else {
+			firstScore = init.calculateScore(first, index);
+			secondScore = init.calculateScore(second, index);
+		}
+    	boolean betterThan = firstScore < secondScore;
+        return betterThan;
     }
+
+//    public boolean betterThan(int subproblem, Individual first, Individual second, int subpopulation, EvolutionState state, int thread)
+//    {
+//    return first.fitness.betterThan(second.fitness);
+//    }
 
     @Override
     public int produce(final int min,
