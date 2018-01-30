@@ -89,6 +89,7 @@ public class WSCInitializer extends SimpleInitializer {
 	public static int numNeighbours;
 	public static int popSize;
 	public static int numLocalSearchTries;
+	public static int localSearchBound;
 	public double[][] weights;
 	public int[][] neighbourhood;
 
@@ -128,6 +129,7 @@ public class WSCInitializer extends SimpleInitializer {
 		Parameter popSizeParam = new Parameter("pop.subpop.0.size");
 		Parameter numNeighboursParam = new Parameter("numNeighbours");
 		Parameter numLocalSearchTriesParam = new Parameter("numLocalSearchTries");
+		Parameter localSearchBoundParam = new Parameter("localSearchBound");
 
 		w1 = state.parameters.getDouble(weight1Param, null);
 		w2 = state.parameters.getDouble(weight2Param, null);
@@ -139,6 +141,7 @@ public class WSCInitializer extends SimpleInitializer {
 		popSize = state.parameters.getInt(popSizeParam, null);
 		numNeighbours = state.parameters.getInt(numNeighboursParam, null);
 		numLocalSearchTries = state.parameters.getInt(numLocalSearchTriesParam, null);
+		localSearchBound = state.parameters.getInt(localSearchBoundParam, null);
 
 		int numGens = state.parameters.getInt(new Parameter("generations"), null);
 		meanAvailPerGen = new double[numGens];
