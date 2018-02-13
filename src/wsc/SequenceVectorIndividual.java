@@ -25,6 +25,7 @@ public class SequenceVectorIndividual extends VectorIndividual {
 	private double time;
 	private double cost;
 	public Service[] genome;
+	public Set<Service> usedServices;
 
 	@Override
 	public Parameter defaultBase() {
@@ -42,6 +43,8 @@ public class SequenceVectorIndividual extends VectorIndividual {
 
 		genome = new Service[relevantList.size()];
 		relevantList.toArray(genome);
+
+		usedServices = new HashSet<Service>();
 		this.evaluated = false;
 	}
 
@@ -78,6 +81,7 @@ public class SequenceVectorIndividual extends VectorIndividual {
 	public SequenceVectorIndividual clone() {
     	SequenceVectorIndividual g = new SequenceVectorIndividual();
     	g.species = this.species;
+    	g.usedServices = this.usedServices;
     	if (this.fitness == null)
     		g.fitness = (Fitness) g.species.f_prototype.clone();
     	else
@@ -258,6 +262,9 @@ public class SequenceVectorIndividual extends VectorIndividual {
 
 	        // Find the highest overall time
 	        time = findHighestTime(nextInputsToSatisfy);
+
+	        // Save the current set of used services
+	        usedServices = solution;
 
 	        if (!WSCInitializer.dynamicNormalisation || isOperation)
 	        	finishCalculatingSequenceFitness(init, state);

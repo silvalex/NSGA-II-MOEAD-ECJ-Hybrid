@@ -63,6 +63,14 @@ public class WSCInitializer extends SimpleInitializer {
 	public double maxTime = -1.0;
 	public double minCost = Double.MAX_VALUE;
 	public double maxCost = -1.0;
+	public double minIndividualAvailability = Double.MAX_VALUE;
+	public double maxIndividualAvailability = Double.MIN_VALUE;
+	public double minIndividualReliability = Double.MAX_VALUE;
+	public double maxIndividualReliability = Double.MIN_VALUE;
+	public double minIndividualTime = Double.MAX_VALUE;
+	public double maxIndividualTime = Double.MIN_VALUE;
+	public double minIndividualCost = Double.MAX_VALUE;
+	public double maxIndividualCost = Double.MIN_VALUE;
 	public double w1;
 	public double w2;
 	public double w3;
@@ -545,11 +553,19 @@ public class WSCInitializer extends SimpleInitializer {
 			double availability = qos[AVAILABILITY];
 			if (availability > maxAvailability)
 				maxAvailability = availability;
+			if (availability > maxIndividualAvailability)
+				maxIndividualAvailability = availability;
+			if (availability < minIndividualAvailability)
+				minIndividualAvailability = availability;
 
 			// Reliability
 			double reliability = qos[RELIABILITY];
 			if (reliability > maxReliability)
 				maxReliability = reliability;
+			if (reliability > maxIndividualReliability)
+				maxIndividualReliability = reliability;
+			if (reliability < minIndividualReliability)
+				minIndividualReliability = reliability;
 
 			// Time
 			double time = qos[TIME];
@@ -557,6 +573,10 @@ public class WSCInitializer extends SimpleInitializer {
 				maxTime = time;
 			if (time < minTime)
 				minTime = time;
+			if (time > maxIndividualTime)
+				maxIndividualTime = time;
+			if (time < minIndividualTime)
+				minIndividualTime = time;
 
 			// Cost
 			double cost = qos[COST];
@@ -564,6 +584,10 @@ public class WSCInitializer extends SimpleInitializer {
 				maxCost = cost;
 			if (cost < minCost)
 				minCost = cost;
+			if (cost > maxIndividualCost)
+				maxIndividualCost = cost;
+			if (cost < minIndividualCost)
+				minIndividualCost = cost;
 		}
 		// Adjust max. cost and max. time based on the number of services in shrunk repository
 		maxCost *= services.size();
