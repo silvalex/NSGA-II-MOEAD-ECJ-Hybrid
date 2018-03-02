@@ -2,281 +2,657 @@
 <problemStructure>
   <task>
     <provided>
-      <instance name="inst310981225"/>
-      <instance name="inst1196190643"/>
-      <instance name="inst426906341"/>
+      <instance name="inst507612613"/>
+      <instance name="inst211649568"/>
+      <instance name="inst1610541870"/>
+      <instance name="inst1318470020"/>
+      <instance name="inst511297711"/>
     </provided>
     <wanted>
-      <instance name="inst1589230508"/>
+      <instance name="inst1509977643"/>
+      <instance name="inst1592715767"/>
+      <instance name="inst1684683524"/>
+      <instance name="inst2088374857"/>
     </wanted>
   </task>
   <solutions>
+    <solution>
+      <parallel>
+        <sequence>
+          <parallel>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con2019760850"/>
+                  <concept name="con281081801"/>
+                  <concept name="con1129431795"/>
+                  <concept name="con1874338062"/>
+                  <concept name="con813604537"/>
+                </input>
+                <output>
+                  <concept name="con1081708454"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv421174633"/>
+                <service name="serv1875974476"/>
+                <service name="serv1183290652"/>
+                <service name="serv490606866"/>
+                <service name="serv1945406709"/>
+              </realizations>
+            </serviceDesc>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con2019760850"/>
+                  <concept name="con281081801"/>
+                  <concept name="con1129431795"/>
+                  <concept name="con1874338062"/>
+                  <concept name="con813604537"/>
+                </input>
+                <output>
+                  <concept name="con1871881330"/>
+                  <concept name="con1822313310"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv1252722885"/>
+              </realizations>
+            </serviceDesc>
+          </parallel>
+          <serviceDesc>
+            <abstraction>
+              <input>
+                <concept name="con1871881330"/>
+                <concept name="con1822313310"/>
+                <concept name="con1081708454"/>
+              </input>
+              <output>
+                <concept name="con698499739"/>
+                <concept name="con1311920142"/>
+                <concept name="con1501578902"/>
+              </output>
+            </abstraction>
+            <realizations>
+              <service name="serv560039099"/>
+              <service name="serv2014838942"/>
+            </realizations>
+          </serviceDesc>
+          <serviceDesc>
+            <abstraction>
+              <input>
+                <concept name="con698499739"/>
+                <concept name="con1311920142"/>
+                <concept name="con1501578902"/>
+              </input>
+              <output>
+                <concept name="con110883428"/>
+                <concept name="con452718859"/>
+                <concept name="con1326666886"/>
+                <concept name="con2124620098"/>
+                <concept name="con214930840"/>
+              </output>
+            </abstraction>
+            <realizations>
+              <service name="serv1322155118"/>
+              <service name="serv629471332"/>
+            </realizations>
+          </serviceDesc>
+          <parallel>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con110883428"/>
+                  <concept name="con452718859"/>
+                  <concept name="con1326666886"/>
+                  <concept name="con2124620098"/>
+                  <concept name="con214930840"/>
+                </input>
+                <output>
+                  <concept name="con1857546856"/>
+                  <concept name="con1307818552"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv2084271175"/>
+              </realizations>
+            </serviceDesc>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con110883428"/>
+                  <concept name="con452718859"/>
+                  <concept name="con1326666886"/>
+                  <concept name="con2124620098"/>
+                  <concept name="con214930840"/>
+                </input>
+                <output>
+                  <concept name="con1840547423"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv1391587351"/>
+                <service name="serv698903565"/>
+              </realizations>
+            </serviceDesc>
+          </parallel>
+          <parallel>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con1840547423"/>
+                  <concept name="con1857546856"/>
+                  <concept name="con1307818552"/>
+                </input>
+                <output>
+                  <concept name="con1344480285"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv6219741"/>
+              </realizations>
+            </serviceDesc>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con1840547423"/>
+                  <concept name="con1857546856"/>
+                  <concept name="con1307818552"/>
+                </input>
+                <output>
+                  <concept name="con1157896700"/>
+                  <concept name="con896553018"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv1461019584"/>
+              </realizations>
+            </serviceDesc>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con1840547423"/>
+                  <concept name="con1857546856"/>
+                  <concept name="con1307818552"/>
+                </input>
+                <output>
+                  <concept name="con945910681"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv768335798"/>
+              </realizations>
+            </serviceDesc>
+          </parallel>
+          <parallel>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con945910681"/>
+                  <concept name="con1157896700"/>
+                  <concept name="con896553018"/>
+                  <concept name="con1344480285"/>
+                </input>
+                <output>
+                  <concept name="con1841161606"/>
+                  <concept name="con434692973"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv75651974"/>
+                <service name="serv1530451817"/>
+                <service name="serv837768031"/>
+                <service name="serv145084207"/>
+              </realizations>
+            </serviceDesc>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con945910681"/>
+                  <concept name="con1157896700"/>
+                  <concept name="con896553018"/>
+                  <concept name="con1344480285"/>
+                </input>
+                <output>
+                  <concept name="con1786476117"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv1599884050"/>
+                <service name="serv907200264"/>
+                <service name="serv214516440"/>
+              </realizations>
+            </serviceDesc>
+          </parallel>
+          <parallel>
+            <sequence>
+              <serviceDesc>
+                <abstraction>
+                  <input>
+                    <concept name="con1786476117"/>
+                    <concept name="con1841161606"/>
+                    <concept name="con434692973"/>
+                  </input>
+                  <output>
+                    <concept name="con1652114937"/>
+                    <concept name="con964960890"/>
+                    <concept name="con705255752"/>
+                  </output>
+                </abstraction>
+                <realizations>
+                  <service name="serv1669316283"/>
+                </realizations>
+              </serviceDesc>
+              <serviceDesc>
+                <abstraction>
+                  <input>
+                    <concept name="con1652114937"/>
+                    <concept name="con964960890"/>
+                    <concept name="con705255752"/>
+                  </input>
+                  <output>
+                    <concept name="con424047857"/>
+                    <concept name="con1733429134"/>
+                    <concept name="con1277098866"/>
+                    <concept name="con2134451248"/>
+                    <concept name="con409505156"/>
+                    <concept name="con295216454"/>
+                  </output>
+                </abstraction>
+                <realizations>
+                  <service name="serv976632497"/>
+                </realizations>
+              </serviceDesc>
+            </sequence>
+          </parallel>
+          <parallel>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con424047857"/>
+                  <concept name="con1733429134"/>
+                  <concept name="con1277098866"/>
+                  <concept name="con2134451248"/>
+                  <concept name="con409505156"/>
+                  <concept name="con295216454"/>
+                  <concept name="con705255752"/>
+                </input>
+                <output>
+                  <concept name="con769570478"/>
+                  <concept name="con490407045"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv283948673"/>
+                <service name="serv1738748516"/>
+                <service name="serv1046064730"/>
+                <service name="serv353380906"/>
+                <service name="serv1808180749"/>
+              </realizations>
+            </serviceDesc>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con424047857"/>
+                  <concept name="con1733429134"/>
+                  <concept name="con1277098866"/>
+                  <concept name="con2134451248"/>
+                  <concept name="con409505156"/>
+                  <concept name="con295216454"/>
+                  <concept name="con705255752"/>
+                </input>
+                <output>
+                  <concept name="con2114178987"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv1115496963"/>
+                <service name="serv422813139"/>
+                <service name="serv1877612982"/>
+                <service name="serv1184929196"/>
+              </realizations>
+            </serviceDesc>
+          </parallel>
+          <serviceDesc>
+            <abstraction>
+              <input>
+                <concept name="con2114178987"/>
+                <concept name="con769570478"/>
+                <concept name="con490407045"/>
+              </input>
+              <output>
+                <concept name="con1083136603"/>
+                <concept name="con2078539485"/>
+                <concept name="con111497611"/>
+              </output>
+            </abstraction>
+            <realizations>
+              <service name="serv492245372"/>
+              <service name="serv1947045215"/>
+              <service name="serv1254361429"/>
+              <service name="serv561677605"/>
+              <service name="serv2016477448"/>
+            </realizations>
+          </serviceDesc>
+          <parallel>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con1083136603"/>
+                  <concept name="con2078539485"/>
+                  <concept name="con111497611"/>
+                </input>
+                <output>
+                  <concept name="con1534963585"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv1323793662"/>
+              </realizations>
+            </serviceDesc>
+            <sequence>
+              <serviceDesc>
+                <abstraction>
+                  <input>
+                    <concept name="con1083136603"/>
+                    <concept name="con2078539485"/>
+                    <concept name="con111497611"/>
+                  </input>
+                  <output>
+                    <concept name="con212676021"/>
+                    <concept name="con1063884481"/>
+                    <concept name="con1325230255"/>
+                    <concept name="con563526506"/>
+                    <concept name="con1362714436"/>
+                    <concept name="con1503007051"/>
+                  </output>
+                </abstraction>
+                <realizations>
+                  <service name="serv631109838"/>
+                  <service name="serv2085909681"/>
+                  <service name="serv1393225895"/>
+                  <service name="serv700542071"/>
+                </realizations>
+              </serviceDesc>
+              <serviceDesc>
+                <abstraction>
+                  <input>
+                    <concept name="con212676021"/>
+                    <concept name="con1063884481"/>
+                    <concept name="con1325230255"/>
+                    <concept name="con563526506"/>
+                    <concept name="con1362714436"/>
+                    <concept name="con1503007051"/>
+                  </input>
+                  <output>
+                    <concept name="con1738344690"/>
+                    <concept name="con470330383"/>
+                    <concept name="con1538444640"/>
+                    <concept name="con1027637110"/>
+                  </output>
+                </abstraction>
+                <realizations>
+                  <service name="serv7858285"/>
+                </realizations>
+              </serviceDesc>
+            </sequence>
+          </parallel>
+          <parallel>
+            <sequence>
+              <serviceDesc>
+                <abstraction>
+                  <input>
+                    <concept name="con1738344690"/>
+                    <concept name="con470330383"/>
+                    <concept name="con1538444640"/>
+                    <concept name="con1027637110"/>
+                    <concept name="con1534963585"/>
+                  </input>
+                  <output>
+                    <concept name="con621076775"/>
+                    <concept name="con2092059955"/>
+                    <concept name="con20762442"/>
+                    <concept name="con1559743354"/>
+                    <concept name="con1999688372"/>
+                  </output>
+                </abstraction>
+                <realizations>
+                  <service name="serv1462658128"/>
+                  <service name="serv769974304"/>
+                </realizations>
+              </serviceDesc>
+              <serviceDesc>
+                <abstraction>
+                  <input>
+                    <concept name="con621076775"/>
+                    <concept name="con2092059955"/>
+                    <concept name="con20762442"/>
+                    <concept name="con1559743354"/>
+                    <concept name="con1999688372"/>
+                  </input>
+                  <output>
+                    <concept name="con352977080"/>
+                    <concept name="con1854269806"/>
+                  </output>
+                </abstraction>
+                <realizations>
+                  <service name="serv77290518"/>
+                  <service name="serv1532090361"/>
+                </realizations>
+              </serviceDesc>
+            </sequence>
+          </parallel>
+          <parallel>
+            <sequence>
+              <serviceDesc>
+                <abstraction>
+                  <input>
+                    <concept name="con352977080"/>
+                    <concept name="con1854269806"/>
+                    <concept name="con1999688372"/>
+                  </input>
+                  <output>
+                    <concept name="con1725236490"/>
+                    <concept name="con262244041"/>
+                    <concept name="con2121343048"/>
+                    <concept name="con250774347"/>
+                    <concept name="con1674646239"/>
+                  </output>
+                </abstraction>
+                <realizations>
+                  <service name="serv839406537"/>
+                </realizations>
+              </serviceDesc>
+              <serviceDesc>
+                <abstraction>
+                  <input>
+                    <concept name="con1725236490"/>
+                    <concept name="con262244041"/>
+                    <concept name="con2121343048"/>
+                    <concept name="con250774347"/>
+                    <concept name="con1674646239"/>
+                  </input>
+                  <output>
+                    <concept name="con1253957603"/>
+                    <concept name="con503100883"/>
+                  </output>
+                </abstraction>
+                <realizations>
+                  <service name="serv146722751"/>
+                </realizations>
+              </serviceDesc>
+            </sequence>
+          </parallel>
+          <parallel>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con1253957603"/>
+                  <concept name="con503100883"/>
+                  <concept name="con1674646239"/>
+                </input>
+                <output>
+                  <concept name="con4377192"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv1601522594"/>
+                <service name="serv908838770"/>
+                <service name="serv216154984"/>
+                <service name="serv1670954827"/>
+                <service name="serv978271003"/>
+                <service name="serv285587217"/>
+                <service name="serv1740387060"/>
+                <service name="serv1047703236"/>
+                <service name="serv355019450"/>
+                <service name="serv1809819293"/>
+              </realizations>
+            </serviceDesc>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con1253957603"/>
+                  <concept name="con503100883"/>
+                  <concept name="con1674646239"/>
+                </input>
+                <output>
+                  <concept name="con774486072"/>
+                  <concept name="con1239000502"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv1117135469"/>
+              </realizations>
+            </serviceDesc>
+          </parallel>
+          <serviceDesc>
+            <abstraction>
+              <input>
+                <concept name="con774486072"/>
+                <concept name="con1239000502"/>
+                <concept name="con4377192"/>
+              </input>
+              <output>
+                <concept name="con1513866784"/>
+                <concept name="con595472466"/>
+                <concept name="con817701905"/>
+              </output>
+            </abstraction>
+            <realizations>
+              <service name="serv424451683"/>
+            </realizations>
+          </serviceDesc>
+          <serviceDesc>
+            <abstraction>
+              <input>
+                <concept name="con1513866784"/>
+                <concept name="con595472466"/>
+                <concept name="con817701905"/>
+              </input>
+              <output>
+                <concept name="con1539879141"/>
+                <concept name="con1115093137"/>
+                <concept name="con75248148"/>
+              </output>
+            </abstraction>
+            <realizations>
+              <service name="serv1879251526"/>
+            </realizations>
+          </serviceDesc>
+          <parallel>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con1539879141"/>
+                  <concept name="con1115093137"/>
+                  <concept name="con75248148"/>
+                </input>
+                <output>
+                  <concept name="con1395691071"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv1186567702"/>
+              </realizations>
+            </serviceDesc>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con1539879141"/>
+                  <concept name="con1115093137"/>
+                  <concept name="con75248148"/>
+                </input>
+                <output>
+                  <concept name="con991999738"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv493883916"/>
+              </realizations>
+            </serviceDesc>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con1539879141"/>
+                  <concept name="con1115093137"/>
+                  <concept name="con75248148"/>
+                </input>
+                <output>
+                  <concept name="con817293857"/>
+                  <concept name="con900031981"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv1948683759"/>
+                <service name="serv1255999935"/>
+                <service name="serv563316149"/>
+              </realizations>
+            </serviceDesc>
+          </parallel>
+        </sequence>
+      </parallel>
+    </solution>
     <solution>
       <sequence>
         <parallel>
           <serviceDesc>
             <abstraction>
               <input>
-                <concept name="con1852622874"/>
-                <concept name="con1958306700"/>
-                <concept name="con1881706184"/>
+                <concept name="con2019760850"/>
+                <concept name="con281081801"/>
+                <concept name="con1129431795"/>
+                <concept name="con1874338062"/>
+                <concept name="con813604537"/>
               </input>
               <output>
-                <concept name="con1575097985"/>
-                <concept name="con424447479"/>
-                <concept name="con1126758410"/>
-                <concept name="con148153048"/>
-                <concept name="con709344694"/>
+                <concept name="con1311303867"/>
               </output>
             </abstraction>
             <realizations>
-              <service name="serv1835621349"/>
-            </realizations>
-          </serviceDesc>
-          <sequence>
-            <serviceDesc>
-              <abstraction>
-                <input>
-                  <concept name="con1852622874"/>
-                  <concept name="con1958306700"/>
-                  <concept name="con1881706184"/>
-                </input>
-                <output>
-                  <concept name="con1789334601"/>
-                  <concept name="con713442062"/>
-                  <concept name="con1489280502"/>
-                </output>
-              </abstraction>
-              <realizations>
-                <service name="serv1142937525"/>
-                <service name="serv450253739"/>
-                <service name="serv1905053582"/>
-              </realizations>
-            </serviceDesc>
-            <serviceDesc>
-              <abstraction>
-                <input>
-                  <concept name="con1789334601"/>
-                  <concept name="con713442062"/>
-                  <concept name="con1489280502"/>
-                </input>
-                <output>
-                  <concept name="con823837439"/>
-                  <concept name="con2078327054"/>
-                  <concept name="con964340411"/>
-                </output>
-              </abstraction>
-              <realizations>
-                <service name="serv1212369758"/>
-                <service name="serv519685972"/>
-              </realizations>
-            </serviceDesc>
-            <serviceDesc>
-              <abstraction>
-                <input>
-                  <concept name="con823837439"/>
-                  <concept name="con2078327054"/>
-                  <concept name="con964340411"/>
-                </input>
-                <output>
-                  <concept name="con762597812"/>
-                  <concept name="con1233670602"/>
-                  <concept name="con1584314952"/>
-                  <concept name="con365460579"/>
-                </output>
-              </abstraction>
-              <realizations>
-                <service name="serv1974485815"/>
-              </realizations>
-            </serviceDesc>
-          </sequence>
-        </parallel>
-        <parallel>
-          <serviceDesc>
-            <abstraction>
-              <input>
-                <concept name="con762597812"/>
-                <concept name="con1233670602"/>
-                <concept name="con1584314952"/>
-                <concept name="con365460579"/>
-                <concept name="con1575097985"/>
-                <concept name="con424447479"/>
-                <concept name="con1126758410"/>
-                <concept name="con148153048"/>
-                <concept name="con709344694"/>
-              </input>
-              <output>
-                <concept name="con609804828"/>
-                <concept name="con408882547"/>
-                <concept name="con689888529"/>
-              </output>
-            </abstraction>
-            <realizations>
-              <service name="serv1281801991"/>
-              <service name="serv589118205"/>
+              <service name="serv2018115992"/>
             </realizations>
           </serviceDesc>
           <serviceDesc>
             <abstraction>
               <input>
-                <concept name="con762597812"/>
-                <concept name="con1233670602"/>
-                <concept name="con1584314952"/>
-                <concept name="con365460579"/>
-                <concept name="con1575097985"/>
-                <concept name="con424447479"/>
-                <concept name="con1126758410"/>
-                <concept name="con148153048"/>
-                <concept name="con709344694"/>
+                <concept name="con2019760850"/>
+                <concept name="con281081801"/>
+                <concept name="con1129431795"/>
+                <concept name="con1874338062"/>
+                <concept name="con813604537"/>
               </input>
               <output>
-                <concept name="con1517953634"/>
-                <concept name="con1327680691"/>
+                <concept name="con1526970762"/>
+                <concept name="con144064106"/>
               </output>
             </abstraction>
             <realizations>
-              <service name="serv2043918048"/>
+              <service name="serv1325432168"/>
+              <service name="serv632748382"/>
+              <service name="serv2087548225"/>
+              <service name="serv1394864401"/>
             </realizations>
           </serviceDesc>
-        </parallel>
-        <parallel>
-          <serviceDesc>
-            <abstraction>
-              <input>
-                <concept name="con1517953634"/>
-                <concept name="con1327680691"/>
-                <concept name="con609804828"/>
-                <concept name="con408882547"/>
-                <concept name="con689888529"/>
-              </input>
-              <output>
-                <concept name="con1365366785"/>
-                <concept name="con348257141"/>
-              </output>
-            </abstraction>
-            <realizations>
-              <service name="serv1351234224"/>
-              <service name="serv658550438"/>
-            </realizations>
-          </serviceDesc>
-          <serviceDesc>
-            <abstraction>
-              <input>
-                <concept name="con1517953634"/>
-                <concept name="con1327680691"/>
-                <concept name="con609804828"/>
-                <concept name="con408882547"/>
-                <concept name="con689888529"/>
-              </input>
-              <output>
-                <concept name="con1139046292"/>
-                <concept name="con2133218716"/>
-              </output>
-            </abstraction>
-            <realizations>
-              <service name="serv2113350281"/>
-            </realizations>
-          </serviceDesc>
-          <serviceDesc>
-            <abstraction>
-              <input>
-                <concept name="con1517953634"/>
-                <concept name="con1327680691"/>
-                <concept name="con609804828"/>
-                <concept name="con408882547"/>
-                <concept name="con689888529"/>
-              </input>
-              <output>
-                <concept name="con344365908"/>
-              </output>
-            </abstraction>
-            <realizations>
-              <service name="serv1420666457"/>
-              <service name="serv727982671"/>
-              <service name="serv35298847"/>
-            </realizations>
-          </serviceDesc>
-        </parallel>
-        <parallel>
-          <sequence>
-            <parallel>
-              <serviceDesc>
-                <abstraction>
-                  <input>
-                    <concept name="con344365908"/>
-                    <concept name="con1139046292"/>
-                    <concept name="con2133218716"/>
-                    <concept name="con1365366785"/>
-                    <concept name="con348257141"/>
-                  </input>
-                  <output>
-                    <concept name="con907810243"/>
-                  </output>
-                </abstraction>
-                <realizations>
-                  <service name="serv1490098690"/>
-                  <service name="serv797414904"/>
-                </realizations>
-              </serviceDesc>
-              <serviceDesc>
-                <abstraction>
-                  <input>
-                    <concept name="con344365908"/>
-                    <concept name="con1139046292"/>
-                    <concept name="con2133218716"/>
-                    <concept name="con1365366785"/>
-                    <concept name="con348257141"/>
-                  </input>
-                  <output>
-                    <concept name="con1941101132"/>
-                  </output>
-                </abstraction>
-                <realizations>
-                  <service name="serv104731080"/>
-                  <service name="serv1559530923"/>
-                </realizations>
-              </serviceDesc>
-              <serviceDesc>
-                <abstraction>
-                  <input>
-                    <concept name="con344365908"/>
-                    <concept name="con1139046292"/>
-                    <concept name="con2133218716"/>
-                    <concept name="con1365366785"/>
-                    <concept name="con348257141"/>
-                  </input>
-                  <output>
-                    <concept name="con889992622"/>
-                    <concept name="con884870893"/>
-                  </output>
-                </abstraction>
-                <realizations>
-                  <service name="serv866847137"/>
-                </realizations>
-              </serviceDesc>
-            </parallel>
-            <serviceDesc>
-              <abstraction>
-                <input>
-                  <concept name="con889992622"/>
-                  <concept name="con884870893"/>
-                  <concept name="con1941101132"/>
-                  <concept name="con907810243"/>
-                </input>
-                <output>
-                  <concept name="con77286314"/>
-                  <concept name="con276572181"/>
-                  <concept name="con1795682566"/>
-                  <concept name="con1319488085"/>
-                  <concept name="con718561661"/>
-                </output>
-              </abstraction>
-              <realizations>
-                <service name="serv174163313"/>
-                <service name="serv1628963156"/>
-              </realizations>
-            </serviceDesc>
-          </sequence>
         </parallel>
         <parallel>
           <sequence>
@@ -285,256 +661,173 @@
                 <serviceDesc>
                   <abstraction>
                     <input>
-                      <concept name="con77286314"/>
-                      <concept name="con276572181"/>
-                      <concept name="con1795682566"/>
-                      <concept name="con1319488085"/>
-                      <concept name="con718561661"/>
+                      <concept name="con1526970762"/>
+                      <concept name="con144064106"/>
+                      <concept name="con1311303867"/>
                     </input>
                     <output>
-                      <concept name="con628442805"/>
-                      <concept name="con1951956605"/>
-                      <concept name="con1126962453"/>
+                      <concept name="con1402449176"/>
+                      <concept name="con41038925"/>
+                      <concept name="con625176273"/>
                     </output>
                   </abstraction>
                   <realizations>
-                    <service name="serv936279370"/>
-                    <service name="serv243595546"/>
-                    <service name="serv1698395389"/>
-                    <service name="serv1005711603"/>
+                    <service name="serv702180615"/>
+                    <service name="serv9496791"/>
+                    <service name="serv1464296634"/>
                   </realizations>
                 </serviceDesc>
                 <serviceDesc>
                   <abstraction>
                     <input>
-                      <concept name="con628442805"/>
-                      <concept name="con1951956605"/>
-                      <concept name="con1126962453"/>
+                      <concept name="con1402449176"/>
+                      <concept name="con41038925"/>
+                      <concept name="con625176273"/>
                     </input>
                     <output>
-                      <concept name="con29769108"/>
-                      <concept name="con1080469570"/>
-                      <concept name="con147538865"/>
+                      <concept name="con1925950544"/>
+                      <concept name="con1239416994"/>
+                      <concept name="con147135021"/>
                     </output>
                   </abstraction>
                   <realizations>
-                    <service name="serv313027779"/>
-                    <service name="serv1767827622"/>
-                    <service name="serv1075143836"/>
-                    <service name="serv382460012"/>
+                    <service name="serv771612848"/>
                   </realizations>
                 </serviceDesc>
               </sequence>
             </parallel>
-            <parallel>
-              <serviceDesc>
-                <abstraction>
-                  <input>
-                    <concept name="con29769108"/>
-                    <concept name="con1080469570"/>
-                    <concept name="con147538865"/>
-                  </input>
-                  <output>
-                    <concept name="con322858929"/>
-                    <concept name="con947749026"/>
-                  </output>
-                </abstraction>
-                <realizations>
-                  <service name="serv1837259855"/>
-                  <service name="serv1144576069"/>
-                  <service name="serv451892245"/>
-                </realizations>
-              </serviceDesc>
-              <serviceDesc>
-                <abstraction>
-                  <input>
-                    <concept name="con29769108"/>
-                    <concept name="con1080469570"/>
-                    <concept name="con147538865"/>
-                  </input>
-                  <output>
-                    <concept name="con1166901236"/>
-                    <concept name="con1824561833"/>
-                    <concept name="con483230374"/>
-                  </output>
-                </abstraction>
-                <realizations>
-                  <service name="serv1906692088"/>
-                </realizations>
-              </serviceDesc>
-            </parallel>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con1925950544"/>
+                  <concept name="con1239416994"/>
+                  <concept name="con147135021"/>
+                </input>
+                <output>
+                  <concept name="con306684018"/>
+                  <concept name="con615345123"/>
+                  <concept name="con662037789"/>
+                  <concept name="con82002069"/>
+                  <concept name="con71767093"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv78929024"/>
+                <service name="serv1533728867"/>
+                <service name="serv841045081"/>
+              </realizations>
+            </serviceDesc>
           </sequence>
         </parallel>
         <parallel>
           <serviceDesc>
             <abstraction>
               <input>
-                <concept name="con1166901236"/>
-                <concept name="con1824561833"/>
-                <concept name="con483230374"/>
-                <concept name="con322858929"/>
-                <concept name="con947749026"/>
+                <concept name="con306684018"/>
+                <concept name="con615345123"/>
+                <concept name="con662037789"/>
+                <concept name="con82002069"/>
+                <concept name="con71767093"/>
               </input>
               <output>
-                <concept name="con535252996"/>
-                <concept name="con1084974986"/>
+                <concept name="con742739895"/>
               </output>
             </abstraction>
             <realizations>
-              <service name="serv1214008302"/>
+              <service name="serv148361257"/>
             </realizations>
           </serviceDesc>
-          <serviceDesc>
-            <abstraction>
-              <input>
-                <concept name="con1166901236"/>
-                <concept name="con1824561833"/>
-                <concept name="con483230374"/>
-                <concept name="con322858929"/>
-                <concept name="con947749026"/>
-              </input>
-              <output>
-                <concept name="con1362703918"/>
-                <concept name="con1475762124"/>
-              </output>
-            </abstraction>
-            <realizations>
-              <service name="serv521324478"/>
-              <service name="serv1976124321"/>
-            </realizations>
-          </serviceDesc>
-          <serviceDesc>
-            <abstraction>
-              <input>
-                <concept name="con1166901236"/>
-                <concept name="con1824561833"/>
-                <concept name="con483230374"/>
-                <concept name="con322858929"/>
-                <concept name="con947749026"/>
-              </input>
-              <output>
-                <concept name="con1428859101"/>
-              </output>
-            </abstraction>
-            <realizations>
-              <service name="serv1283440535"/>
-            </realizations>
-          </serviceDesc>
-          <serviceDesc>
-            <abstraction>
-              <input>
-                <concept name="con1166901236"/>
-                <concept name="con1824561833"/>
-                <concept name="con483230374"/>
-                <concept name="con322858929"/>
-                <concept name="con947749026"/>
-              </input>
-              <output>
-                <concept name="con1022096853"/>
-              </output>
-            </abstraction>
-            <realizations>
-              <service name="serv590756711"/>
-            </realizations>
-          </serviceDesc>
+          <sequence>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con306684018"/>
+                  <concept name="con615345123"/>
+                  <concept name="con662037789"/>
+                  <concept name="con82002069"/>
+                  <concept name="con71767093"/>
+                </input>
+                <output>
+                  <concept name="con2122783901"/>
+                  <concept name="con1909769299"/>
+                  <concept name="con853133142"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv1603161100"/>
+              </realizations>
+            </serviceDesc>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con2122783901"/>
+                  <concept name="con1909769299"/>
+                  <concept name="con853133142"/>
+                </input>
+                <output>
+                  <concept name="con1177357087"/>
+                  <concept name="con418518080"/>
+                  <concept name="con1428869619"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv910477314"/>
+                <service name="serv217793490"/>
+              </realizations>
+            </serviceDesc>
+          </sequence>
         </parallel>
         <parallel>
+          <sequence>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con1177357087"/>
+                  <concept name="con418518080"/>
+                  <concept name="con1428869619"/>
+                  <concept name="con742739895"/>
+                </input>
+                <output>
+                  <concept name="con35105360"/>
+                  <concept name="con1977363205"/>
+                  <concept name="con2101891105"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv1672593333"/>
+              </realizations>
+            </serviceDesc>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con35105360"/>
+                  <concept name="con1977363205"/>
+                  <concept name="con2101891105"/>
+                </input>
+                <output>
+                  <concept name="con420362759"/>
+                  <concept name="con1923087856"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv979909547"/>
+              </realizations>
+            </serviceDesc>
+          </sequence>
           <serviceDesc>
             <abstraction>
               <input>
-                <concept name="con1022096853"/>
-                <concept name="con1428859101"/>
-                <concept name="con1362703918"/>
-                <concept name="con1475762124"/>
-                <concept name="con535252996"/>
-                <concept name="con1084974986"/>
+                <concept name="con1177357087"/>
+                <concept name="con418518080"/>
+                <concept name="con1428869619"/>
+                <concept name="con742739895"/>
               </input>
               <output>
-                <concept name="con850872027"/>
-                <concept name="con1193117636"/>
+                <concept name="con795993013"/>
               </output>
             </abstraction>
             <realizations>
-              <service name="serv2045556554"/>
-              <service name="serv1352872768"/>
-              <service name="serv660188944"/>
-            </realizations>
-          </serviceDesc>
-          <serviceDesc>
-            <abstraction>
-              <input>
-                <concept name="con1022096853"/>
-                <concept name="con1428859101"/>
-                <concept name="con1362703918"/>
-                <concept name="con1475762124"/>
-                <concept name="con535252996"/>
-                <concept name="con1084974986"/>
-              </input>
-              <output>
-                <concept name="con283740464"/>
-              </output>
-            </abstraction>
-            <realizations>
-              <service name="serv2114988787"/>
-              <service name="serv1422305001"/>
-              <service name="serv729621177"/>
-              <service name="serv36937391"/>
-              <service name="serv1491737234"/>
-              <service name="serv799053410"/>
-            </realizations>
-          </serviceDesc>
-        </parallel>
-        <parallel>
-          <serviceDesc>
-            <abstraction>
-              <input>
-                <concept name="con283740464"/>
-                <concept name="con850872027"/>
-                <concept name="con1193117636"/>
-              </input>
-              <output>
-                <concept name="con2100652221"/>
-              </output>
-            </abstraction>
-            <realizations>
-              <service name="serv106369624"/>
-              <service name="serv1561169467"/>
-              <service name="serv868485643"/>
-              <service name="serv175801857"/>
-              <service name="serv1630601700"/>
-              <service name="serv937917876"/>
-            </realizations>
-          </serviceDesc>
-          <serviceDesc>
-            <abstraction>
-              <input>
-                <concept name="con283740464"/>
-                <concept name="con850872027"/>
-                <concept name="con1193117636"/>
-              </input>
-              <output>
-                <concept name="con744367921"/>
-              </output>
-            </abstraction>
-            <realizations>
-              <service name="serv245234090"/>
-              <service name="serv1700033933"/>
-            </realizations>
-          </serviceDesc>
-          <serviceDesc>
-            <abstraction>
-              <input>
-                <concept name="con283740464"/>
-                <concept name="con850872027"/>
-                <concept name="con1193117636"/>
-              </input>
-              <output>
-                <concept name="con808066372"/>
-                <concept name="con1848729549"/>
-              </output>
-            </abstraction>
-            <realizations>
-              <service name="serv1007350109"/>
+              <service name="serv287225723"/>
             </realizations>
           </serviceDesc>
         </parallel>
@@ -543,38 +836,36 @@
             <serviceDesc>
               <abstraction>
                 <input>
-                  <concept name="con808066372"/>
-                  <concept name="con1848729549"/>
-                  <concept name="con744367921"/>
-                  <concept name="con2100652221"/>
+                  <concept name="con795993013"/>
+                  <concept name="con420362759"/>
+                  <concept name="con1923087856"/>
+                  <concept name="con2101891105"/>
                 </input>
                 <output>
-                  <concept name="con1826814522"/>
-                  <concept name="con602226405"/>
-                  <concept name="con1079445209"/>
+                  <concept name="con496553097"/>
+                  <concept name="con2108032935"/>
+                  <concept name="con1741417735"/>
                 </output>
               </abstraction>
               <realizations>
-                <service name="serv314666323"/>
-                <service name="serv1769466166"/>
+                <service name="serv1742025566"/>
               </realizations>
             </serviceDesc>
             <serviceDesc>
               <abstraction>
                 <input>
-                  <concept name="con1826814522"/>
-                  <concept name="con602226405"/>
-                  <concept name="con1079445209"/>
+                  <concept name="con496553097"/>
+                  <concept name="con2108032935"/>
+                  <concept name="con1741417735"/>
                 </input>
                 <output>
-                  <concept name="con412977823"/>
-                  <concept name="con326956297"/>
-                  <concept name="con2126458481"/>
+                  <concept name="con1207254363"/>
+                  <concept name="con2139985247"/>
+                  <concept name="con15239017"/>
                 </output>
               </abstraction>
               <realizations>
-                <service name="serv1076782342"/>
-                <service name="serv384098556"/>
+                <service name="serv1049341780"/>
               </realizations>
             </serviceDesc>
           </sequence>
@@ -583,154 +874,111 @@
           <serviceDesc>
             <abstraction>
               <input>
-                <concept name="con412977823"/>
-                <concept name="con326956297"/>
-                <concept name="con2126458481"/>
+                <concept name="con1207254363"/>
+                <concept name="con2139985247"/>
+                <concept name="con15239017"/>
               </input>
               <output>
-                <concept name="con234788757"/>
+                <concept name="con352360805"/>
+                <concept name="con1390567250"/>
               </output>
             </abstraction>
             <realizations>
-              <service name="serv1838898399"/>
-              <service name="serv1146214575"/>
-              <service name="serv453530789"/>
-              <service name="serv1908330632"/>
+              <service name="serv356657956"/>
             </realizations>
           </serviceDesc>
           <serviceDesc>
             <abstraction>
               <input>
-                <concept name="con412977823"/>
-                <concept name="con326956297"/>
-                <concept name="con2126458481"/>
+                <concept name="con1207254363"/>
+                <concept name="con2139985247"/>
+                <concept name="con15239017"/>
               </input>
               <output>
-                <concept name="con422808973"/>
-                <concept name="con790246621"/>
+                <concept name="con372023105"/>
               </output>
             </abstraction>
             <realizations>
-              <service name="serv1215646808"/>
-              <service name="serv522963022"/>
-              <service name="serv1977762865"/>
-              <service name="serv1285079041"/>
-              <service name="serv592395255"/>
-              <service name="serv2047195098"/>
-              <service name="serv1354511274"/>
-            </realizations>
-          </serviceDesc>
-          <serviceDesc>
-            <abstraction>
-              <input>
-                <concept name="con412977823"/>
-                <concept name="con326956297"/>
-                <concept name="con2126458481"/>
-              </input>
-              <output>
-                <concept name="con858040310"/>
-              </output>
-            </abstraction>
-            <realizations>
-              <service name="serv661827488"/>
-              <service name="serv2116627331"/>
-              <service name="serv1423943507"/>
-              <service name="serv731259721"/>
+              <service name="serv1811457799"/>
             </realizations>
           </serviceDesc>
         </parallel>
-        <parallel>
-          <serviceDesc>
-            <abstraction>
-              <input>
-                <concept name="con858040310"/>
-                <concept name="con422808973"/>
-                <concept name="con790246621"/>
-                <concept name="con234788757"/>
-              </input>
-              <output>
-                <concept name="con760138988"/>
-                <concept name="con545288189"/>
-              </output>
-            </abstraction>
-            <realizations>
-              <service name="serv38575897"/>
-              <service name="serv1493375740"/>
-              <service name="serv800691954"/>
-              <service name="serv108008130"/>
-            </realizations>
-          </serviceDesc>
-          <serviceDesc>
-            <abstraction>
-              <input>
-                <concept name="con858040310"/>
-                <concept name="con422808973"/>
-                <concept name="con790246621"/>
-                <concept name="con234788757"/>
-              </input>
-              <output>
-                <concept name="con1236333469"/>
-                <concept name="con631105672"/>
-              </output>
-            </abstraction>
-            <realizations>
-              <service name="serv1562807973"/>
-            </realizations>
-          </serviceDesc>
-        </parallel>
-        <serviceDesc>
-          <abstraction>
-            <input>
-              <concept name="con1236333469"/>
-              <concept name="con631105672"/>
-              <concept name="con760138988"/>
-              <concept name="con545288189"/>
-            </input>
-            <output>
-              <concept name="con131971841"/>
-              <concept name="con255885558"/>
-              <concept name="con616358928"/>
-            </output>
-          </abstraction>
-          <realizations>
-            <service name="serv870124187"/>
-          </realizations>
-        </serviceDesc>
         <parallel>
           <sequence>
             <serviceDesc>
               <abstraction>
                 <input>
-                  <concept name="con131971841"/>
-                  <concept name="con255885558"/>
-                  <concept name="con616358928"/>
+                  <concept name="con372023105"/>
+                  <concept name="con352360805"/>
+                  <concept name="con1390567250"/>
                 </input>
                 <output>
-                  <concept name="con15842682"/>
-                  <concept name="con1986775789"/>
-                  <concept name="con2016473282"/>
+                  <concept name="con1944182565"/>
+                  <concept name="con1084985504"/>
+                  <concept name="con1132912888"/>
+                  <concept name="con1320112786"/>
                 </output>
               </abstraction>
               <realizations>
-                <service name="serv177440363"/>
-                <service name="serv1632240206"/>
+                <service name="serv1118774013"/>
+                <service name="serv426090189"/>
               </realizations>
             </serviceDesc>
             <serviceDesc>
               <abstraction>
                 <input>
-                  <concept name="con15842682"/>
-                  <concept name="con1986775789"/>
-                  <concept name="con2016473282"/>
+                  <concept name="con1944182565"/>
+                  <concept name="con1084985504"/>
+                  <concept name="con1132912888"/>
+                  <concept name="con1320112786"/>
                 </input>
                 <output>
-                  <concept name="con1847911323"/>
-                  <concept name="con1434594975"/>
+                  <concept name="con38376058"/>
+                  <concept name="con1432146669"/>
+                  <concept name="con1395691071"/>
                 </output>
               </abstraction>
               <realizations>
-                <service name="serv939556420"/>
-                <service name="serv246872596"/>
+                <service name="serv1880890032"/>
+                <service name="serv1188206246"/>
+              </realizations>
+            </serviceDesc>
+          </sequence>
+        </parallel>
+        <parallel>
+          <sequence>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con38376058"/>
+                  <concept name="con1432146669"/>
+                  <concept name="con1395691071"/>
+                </input>
+                <output>
+                  <concept name="con1285089559"/>
+                  <concept name="con2057036766"/>
+                  <concept name="con653441357"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv495522422"/>
+              </realizations>
+            </serviceDesc>
+            <serviceDesc>
+              <abstraction>
+                <input>
+                  <concept name="con1285089559"/>
+                  <concept name="con2057036766"/>
+                  <concept name="con653441357"/>
+                </input>
+                <output>
+                  <concept name="con1549094016"/>
+                  <concept name="con1312944503"/>
+                  <concept name="con1093178110"/>
+                </output>
+              </abstraction>
+              <realizations>
+                <service name="serv1950322265"/>
               </realizations>
             </serviceDesc>
           </sequence>
@@ -739,78 +987,206 @@
           <serviceDesc>
             <abstraction>
               <input>
-                <concept name="con1847911323"/>
-                <concept name="con1434594975"/>
-                <concept name="con2016473282"/>
+                <concept name="con1549094016"/>
+                <concept name="con1312944503"/>
+                <concept name="con1093178110"/>
               </input>
               <output>
-                <concept name="con589938523"/>
-                <concept name="con247692914"/>
+                <concept name="con1787500440"/>
               </output>
             </abstraction>
             <realizations>
-              <service name="serv1701672439"/>
-              <service name="serv1008988653"/>
-              <service name="serv316304829"/>
-              <service name="serv1771104672"/>
+              <service name="serv1257638479"/>
             </realizations>
           </serviceDesc>
           <serviceDesc>
             <abstraction>
               <input>
-                <concept name="con1847911323"/>
-                <concept name="con1434594975"/>
-                <concept name="con2016473282"/>
+                <concept name="con1549094016"/>
+                <concept name="con1312944503"/>
+                <concept name="con1093178110"/>
               </input>
               <output>
-                <concept name="con72166715"/>
+                <concept name="con1158921023"/>
+                <concept name="con1811872199"/>
               </output>
             </abstraction>
             <realizations>
-              <service name="serv1078420886"/>
-              <service name="serv385737062"/>
-              <service name="serv1840536905"/>
-              <service name="serv1147853119"/>
+              <service name="serv564954655"/>
+              <service name="serv2019754498"/>
             </realizations>
           </serviceDesc>
         </parallel>
         <serviceDesc>
           <abstraction>
             <input>
-              <concept name="con72166715"/>
-              <concept name="con589938523"/>
-              <concept name="con247692914"/>
+              <concept name="con1158921023"/>
+              <concept name="con1811872199"/>
+              <concept name="con1787500440"/>
             </input>
             <output>
-              <concept name="con728802989"/>
-              <concept name="con250969964"/>
-              <concept name="con639094273"/>
+              <concept name="con2096563279"/>
+              <concept name="con937928394"/>
+              <concept name="con2052937268"/>
+              <concept name="con1928003450"/>
+              <concept name="con991999738"/>
             </output>
           </abstraction>
           <realizations>
-            <service name="serv455169295"/>
-            <service name="serv1909969138"/>
-            <service name="serv1217285352"/>
-            <service name="serv524601528"/>
-            <service name="serv1979401371"/>
-            <service name="serv1286717585"/>
+            <service name="serv1327070712"/>
           </realizations>
         </serviceDesc>
         <serviceDesc>
           <abstraction>
             <input>
-              <concept name="con728802989"/>
-              <concept name="con250969964"/>
-              <concept name="con639094273"/>
+              <concept name="con2096563279"/>
+              <concept name="con937928394"/>
+              <concept name="con2052937268"/>
+              <concept name="con1928003450"/>
+              <concept name="con991999738"/>
             </input>
             <output>
-              <concept name="con896546722"/>
+              <concept name="con420154494"/>
+              <concept name="con1893182136"/>
+              <concept name="con1075154354"/>
+              <concept name="con1668296182"/>
             </output>
           </abstraction>
           <realizations>
-            <service name="serv594033761"/>
-            <service name="serv2048833604"/>
-            <service name="serv1356149818"/>
+            <service name="serv634386888"/>
+          </realizations>
+        </serviceDesc>
+        <parallel>
+          <serviceDesc>
+            <abstraction>
+              <input>
+                <concept name="con420154494"/>
+                <concept name="con1893182136"/>
+                <concept name="con1075154354"/>
+                <concept name="con1668296182"/>
+              </input>
+              <output>
+                <concept name="con690307095"/>
+                <concept name="con461319551"/>
+              </output>
+            </abstraction>
+            <realizations>
+              <service name="serv2089186731"/>
+            </realizations>
+          </serviceDesc>
+          <serviceDesc>
+            <abstraction>
+              <input>
+                <concept name="con420154494"/>
+                <concept name="con1893182136"/>
+                <concept name="con1075154354"/>
+                <concept name="con1668296182"/>
+              </input>
+              <output>
+                <concept name="con1007764453"/>
+              </output>
+            </abstraction>
+            <realizations>
+              <service name="serv1396502945"/>
+              <service name="serv703819121"/>
+            </realizations>
+          </serviceDesc>
+        </parallel>
+        <parallel>
+          <serviceDesc>
+            <abstraction>
+              <input>
+                <concept name="con1007764453"/>
+                <concept name="con690307095"/>
+                <concept name="con461319551"/>
+              </input>
+              <output>
+                <concept name="con873201398"/>
+                <concept name="con734547289"/>
+              </output>
+            </abstraction>
+            <realizations>
+              <service name="serv11135335"/>
+              <service name="serv1465935178"/>
+            </realizations>
+          </serviceDesc>
+          <serviceDesc>
+            <abstraction>
+              <input>
+                <concept name="con1007764453"/>
+                <concept name="con690307095"/>
+                <concept name="con461319551"/>
+              </input>
+              <output>
+                <concept name="con154097169"/>
+              </output>
+            </abstraction>
+            <realizations>
+              <service name="serv773251354"/>
+              <service name="serv80567568"/>
+              <service name="serv1535367411"/>
+              <service name="serv842683587"/>
+              <service name="serv149999801"/>
+              <service name="serv1604799644"/>
+              <service name="serv912115820"/>
+            </realizations>
+          </serviceDesc>
+        </parallel>
+        <serviceDesc>
+          <abstraction>
+            <input>
+              <concept name="con154097169"/>
+              <concept name="con873201398"/>
+              <concept name="con734547289"/>
+            </input>
+            <output>
+              <concept name="con91017123"/>
+              <concept name="con692967870"/>
+              <concept name="con1640443368"/>
+            </output>
+          </abstraction>
+          <realizations>
+            <service name="serv219432034"/>
+          </realizations>
+        </serviceDesc>
+        <serviceDesc>
+          <abstraction>
+            <input>
+              <concept name="con91017123"/>
+              <concept name="con692967870"/>
+              <concept name="con1640443368"/>
+            </input>
+            <output>
+              <concept name="con2117866215"/>
+              <concept name="con919904638"/>
+              <concept name="con1010637677"/>
+              <concept name="con587279822"/>
+              <concept name="con280267797"/>
+              <concept name="con1047299410"/>
+            </output>
+          </abstraction>
+          <realizations>
+            <service name="serv1674231877"/>
+          </realizations>
+        </serviceDesc>
+        <serviceDesc>
+          <abstraction>
+            <input>
+              <concept name="con2117866215"/>
+              <concept name="con919904638"/>
+              <concept name="con1010637677"/>
+              <concept name="con587279822"/>
+              <concept name="con280267797"/>
+              <concept name="con1047299410"/>
+            </input>
+            <output>
+              <concept name="con817293857"/>
+              <concept name="con900031981"/>
+            </output>
+          </abstraction>
+          <realizations>
+            <service name="serv981548053"/>
+            <service name="serv288864267"/>
           </realizations>
         </serviceDesc>
       </sequence>

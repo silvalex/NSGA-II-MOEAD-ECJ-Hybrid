@@ -43,23 +43,8 @@ public class WSCMutationPipeline extends BreedingPipeline {
     	int indexA = init.random.nextInt(tree.genome.length);
     	int indexB = init.random.nextInt(tree.genome.length);
     	swapServices(tree.genome, indexA, indexB);
-
-    	//double originalScore;
-    	//double firstScore;
-
-      	//if (WSCInitializer.tchebycheff) {
-    		//originalScore = init.calculateTchebycheffScore(original, start);
-			//firstScore = init.calculateTchebycheffScore(tree, start);
-    	//}
-		//else {
-			//originalScore = init.calculateScore(original, start);
-			//firstScore = init.calculateScore(tree, start);
-		//}
-
-    	//if (firstScore <= originalScore) {
-        	inds[start] = tree;
-        	inds[start].evaluated = false;
-    	//}
+        inds[start] = tree;
+        inds[start].evaluated = false;
 
         return n;
 	}

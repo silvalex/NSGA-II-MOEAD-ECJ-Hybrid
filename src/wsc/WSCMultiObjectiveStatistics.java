@@ -4,11 +4,8 @@ import java.util.ArrayList;
 
 import ec.EvolutionState;
 import ec.Individual;
-import ec.Population;
-import ec.Subpopulation;
 import ec.multiobjective.MultiObjectiveFitness;
 import ec.multiobjective.MultiObjectiveStatistics;
-import ec.multiobjective.nsga2.NSGA2Evaluator;
 import ec.multiobjective.nsga2.NSGA2MultiObjectiveFitness;
 import ec.util.QuickSort;
 import ec.util.SortComparator;

@@ -87,6 +87,9 @@ public class WSCCrossoverPipeline extends BreedingPipeline {
 		t1.genome = newGenome1;
 		t2.genome = newGenome2;
 
+		t1.calculateSequenceFitness(init.numLayers, init.endServ, t1.genome, init, state, true);
+		t2.calculateSequenceFitness(init.numLayers, init.endServ, t2.genome, init, state, true);
+
 		// Select the result with the highest fitness as the result
 		//double originalScore;
     	double firstScore;

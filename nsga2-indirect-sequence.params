@@ -3,7 +3,7 @@ parent.1 = @ec.simple.SimpleShortStatistics simple.params
 
 
 pop.subpop.0.size = 500
-generations       = 51
+generations       = 400000
 
 seed.0                                         = 32
 composition-task                               = problem.xml
@@ -62,9 +62,9 @@ pop.subpop.0.species.pipe.source.0.num-sources = 2
 pop.subpop.0.species.pipe.source.1             = wsc.WSCMutationPipeline
 pop.subpop.0.species.pipe.source.1.prob        = 0.1
 pop.subpop.0.species.pipe.source.1.num-sources = 1
-#pop.subpop.0.species.pipe.source.2             = ec.breed.ReproductionPipeline
+pop.subpop.0.species.pipe.source.2             = ec.breed.ReproductionPipeline
 #pop.subpop.0.species.pipe.source.2             = wsc.WSCLocalSearchPipeline
-pop.subpop.0.species.pipe.source.2             = wsc.WSCSmartLocalSearchPipeline
+#pop.subpop.0.species.pipe.source.2             = wsc.WSCSmartLocalSearchPipeline
 pop.subpop.0.species.pipe.source.2.prob        = 0.1
 pop.subpop.0.species.pipe.source.2.num-sources = 1
 pop.subpop.0.species.pipe.source.0.source.0	   = wsc.MOEADTournamentSelection
