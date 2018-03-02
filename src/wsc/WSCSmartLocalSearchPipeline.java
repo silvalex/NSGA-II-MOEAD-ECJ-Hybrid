@@ -47,14 +47,18 @@ public class WSCSmartLocalSearchPipeline extends BreedingPipeline {
 			bestScore = init.calculateScore(bestNeighbour, start);
 
     	SequenceVectorIndividual neighbour;
-
-    	// Randomly select a fixed index
+    	
+    	int localSearchTries = 0;
     	for (int indexA = 0; indexA < bestNeighbour.genome.length; indexA++) {
     		for (int indexB = 0; indexB < bestNeighbour.genome.length; indexB++) {
+    			if (localSearchTries >= WSCInitializer.numLocalSearchTries)
+    				break;
+    			
     			neighbour = (SequenceVectorIndividual) inds[start].clone();
 
     			if (swapIsAllowed(neighbour.genome, indexA, indexB, neighbour.usedServices, start, init)) {
     				swapServices(neighbour.genome, indexA, indexB);
+    				localSearchTries++;
 
     				// Calculate QoS for decoded sequence
     				neighbour.calculateSequenceFitness(init.numLayers, init.endServ, neighbour.genome, init, state, true);
